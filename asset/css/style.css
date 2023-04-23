@@ -832,7 +832,7 @@ main {
 }
 .sc_work .horison_wrap {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 2492px;
   height: 100vh;

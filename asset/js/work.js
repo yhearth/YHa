@@ -75,17 +75,46 @@ const repickCodeSrc = [
 const codeSrc = [fritzCodeSrc ,tamCodeSrc ,spotiCodeSrc,hmgCodeSrc ,repickCodeSrc]
 
 
+//mobile
+const mfritzSrc = [
+    './asset/img/mobile/fritz_main.gif',
+    './asset/img/mobile/fritz_product.gif',
+    './asset/img/mobile/fritz_custom.gif',
+    './asset/img/mobile/fritz_wishAdd.gif',
+    './asset/img/mobile/fritz_living.gif',
+    './asset/img/mobile/fritz_designer.gif',
+    './asset/img/mobile/fritz_history.gif'
+]
+const mtamSrc = [
+    './asset/img/mobile/tamburins_main.gif',
+    './asset/img/mobile/tamburins_gsap.gif',
+    './asset/img/mobile/tamburins_swiper.gif'
+]
+const mspotiSrc = [
+    './asset/img/mobile/spotfy_getJson.gif'
+]
+const mhmgSrc = [
+    './asset/img/mobile/hmg_swiper.gif',
+    './asset/img/mobile/hmg_m_code.gif'
+]
+const mrepickSrc = [
+    './asset/img/mobile/repick_scroll.gif',
+    './asset/img/mobile/repick_click.gif',
+    './asset/img/mobile/repick_slide.gif'
+]
+const mImgSrc = [mfritzSrc ,mtamSrc ,mspotiSrc,mhmgSrc ,mrepickSrc]
 
 window.onload = function(){
     reset();
     workIntroAni();
 }
-// window.onresize = function(){
-//     // document.location.reload();
-//     // window.scrollTo(0, 0);
-//     // horizonWrap.style.left = 0;
-// };
-
+window.onresize = function(){
+    if (window.matchMedia("(min-width: 768px)").matches){
+        document.location.reload();
+        window.scrollTo(0, 0);
+        horizonWrap.style.left = 0;
+    }
+};
 //reset
 function reset(){
     window.scrollTo(0, 0);
@@ -313,25 +342,40 @@ function workClickAni(){
                 fritzArea.style.display = 'block'
                 pgIntroOpen(fritzArea);
                 workCode(fritzArea);  
+                if (window.matchMedia("(max-width: 768px)").matches){
+                    mMvChange(fritzArea);
+                }
             }else if(workLink[c].classList.contains('tamburins')){
                 tanburinsArea.style.display = 'block'
                 pgIntroOpen(tanburinsArea);
                 workCode(tanburinsArea);
+                if (window.matchMedia("(max-width: 768px)").matches){
+                    mMvChange(tanburinsArea);
+                }
                 headColor();
             }else if(workLink[c].classList.contains('spotfy')){
                 spotfyArea.style.display = 'block'
                 pgIntroOpen(spotfyArea);
                 workCode(spotfyArea);
+                if (window.matchMedia("(max-width: 768px)").matches){
+                    mMvChange(spotfyArea);
+                }
                 headColor();
             }else if(workLink[c].classList.contains('hmg')){
                 hmgArea.style.display = 'block'
                 pgIntroOpen(hmgArea);
                 workCode(hmgArea);
+                if (window.matchMedia("(max-width: 768px)").matches){
+                    mMvChange(hmgArea);
+                }
                 headColor();
             }else if(workLink[c].classList.contains('repick')){
                 repickArea.style.display = 'block'
                 pgIntroOpen(repickArea);
                 workCode(repickArea);
+                if (window.matchMedia("(max-width: 768px)").matches){
+                    mMvChange(repickArea);
+                }
                 headColor();
             }
         })
@@ -516,8 +560,7 @@ codeXBtn.addEventListener('click',()=>{
 const mInfoUl = document.querySelectorAll('.work_page .work_wrap .info_group .desc');
 const mInfoPlus = document.querySelectorAll('.work_page .work_wrap .info_group .block');
 let ulOpen = false;
-// if(matchMedia('screen and(max-width:786px)').matches){
-// }
+
 for(let b = 0; b < mInfoPlus.length; b++){
     mInfoPlus[b].addEventListener('click',()=>{
         for(let u = 0; u < mInfoUl.length; u++){
@@ -530,4 +573,15 @@ for(let b = 0; b < mInfoPlus.length; b++){
             }
         }
     })
+}
+
+//모바일 비디오 변경
+// if (window.matchMedia("(max-width: 768px)").matches) { }
+function mMvChange(mAllImgBox){
+    let mGallImgBox = mAllImgBox.querySelectorAll('.img_wrap');
+    let mGallMv = mAllImgBox.querySelectorAll('.mv');
+    for(let m = 0 ;m < mGallMv.length; m++){
+        mGallMv[m].remove();
+        mGallImgBox[m].innerHTML = ` <img src="${mImgSrc[workIndex][m]}" alt="" width="100%">`
+    }
 }
