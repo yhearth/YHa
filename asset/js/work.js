@@ -142,7 +142,7 @@ window.addEventListener('scroll',()=>{
     //console.log(secGet,horGet,v)
     translateX = (secGet.height - secGet.width) * ((v / (secGet.height - horGet.height)) * -1);
     horizonWrap.style.left = `${translateX}px`;
-    console.log('translateX : ', translateX);
+   // console.log('translateX : ', translateX);
 }) 
 //cursor
 window.addEventListener('mousemove',(e)=>{

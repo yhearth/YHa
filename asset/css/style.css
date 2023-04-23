@@ -1804,6 +1804,7 @@ main {
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.5;
+  color: #333333;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1908,7 +1909,7 @@ main {
   left: 0;
   width: 0vw;
   height: 100vh;
-  background-color: var(--bgColorG);
+  background-color: #333;
   z-index: 100;
 }
 
@@ -2366,6 +2367,11 @@ main {
   padding: 80px 0;
   box-sizing: border-box;
 }
+@media (max-width: 767px) {
+  .contact_area .sc_intro .title_wrap {
+    padding: 60px 0;
+  }
+}
 .contact_area .sc_intro .title_wrap .title {
   position: relative;
   margin: 60px 0;
@@ -2402,7 +2408,7 @@ main {
 }
 @media (max-width: 767px) {
   .contact_area .sc_intro .title_wrap .title .tit {
-    height: 100px;
+    height: 80px;
   }
 }
 .contact_area .sc_intro .title_wrap .title .tit:nth-child(3) span {
@@ -2434,7 +2440,7 @@ main {
 }
 @media (max-width: 767px) {
   .contact_area .sc_intro .title_wrap .title .tit span {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 }
 .contact_area .sc_intro .title_wrap .explain {
@@ -2465,7 +2471,7 @@ main {
 }
 @media (max-width: 767px) {
   .contact_area .sc_intro .title_wrap .explain p {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 .contact_area .sc_intro .title_wrap .explain .sns_wrap {
@@ -2486,11 +2492,6 @@ main {
 @media (max-width: 1024px) {
   .contact_area .sc_intro .title_wrap .explain .sns_wrap {
     font-size: 1.6rem;
-  }
-}
-@media (max-width: 767px) {
-  .contact_area .sc_intro .title_wrap .explain .sns_wrap {
-    font-size: 1.4rem;
   }
 }
 .contact_area .sc_intro .title_wrap .explain .sns_wrap > div {
@@ -2551,7 +2552,7 @@ main {
 }
 @media (max-width: 767px) {
   .contact_area .sc_career .skill_wrap .tit {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0 0 20px 0;
   }
 }
@@ -2637,7 +2638,7 @@ main {
   .contact_area .sc_career .career_group .education_wrap .tit,
   .contact_area .sc_career .career_group .active_wrap .tit {
     margin-bottom: 20px;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 .contact_area .sc_career .career_group .education_wrap .sub,
@@ -2645,6 +2646,19 @@ main {
   overflow: hidden;
   font-size: 1.2rem;
   line-height: 1.7;
+  word-break: keep-all;
+}
+@media (max-width: 1024px) {
+  .contact_area .sc_career .career_group .education_wrap .sub,
+  .contact_area .sc_career .career_group .active_wrap .sub {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact_area .sc_career .career_group .education_wrap .sub,
+  .contact_area .sc_career .career_group .active_wrap .sub {
+    font-size: 0.8rem;
+  }
 }
 .contact_area .sc_career .career_group .education_wrap .sub > div,
 .contact_area .sc_career .career_group .active_wrap .sub > div {
@@ -2659,6 +2673,12 @@ main {
 .contact_area .sc_career .career_group .education_wrap .sub p,
 .contact_area .sc_career .career_group .active_wrap .sub p {
   padding-left: 60px;
+}
+@media (max-width: 767px) {
+  .contact_area .sc_career .career_group .education_wrap .sub p,
+  .contact_area .sc_career .career_group .active_wrap .sub p {
+    padding-left: 50px;
+  }
 }
 @media (max-width: 767px) {
   .contact_area .sc_career .career_group .education_wrap {
@@ -2677,6 +2697,7 @@ main {
   .contact_area .sc_career .footer_wrap {
     padding: 20px 6.25vw;
     flex-direction: column;
+    align-items: start;
   }
 }
 .contact_area .sc_career .footer_wrap span {
@@ -2693,6 +2714,11 @@ main {
 .contact_area .sc_career .footer_wrap div {
   display: flex;
   font-weight: 300;
+}
+@media (max-width: 767px) {
+  .contact_area .sc_career .footer_wrap p {
+    font-size: 0.5rem;
+  }
 }
 .contact_area .sc_career .footer_wrap p:nth-child(1) {
   margin-right: 30px;
