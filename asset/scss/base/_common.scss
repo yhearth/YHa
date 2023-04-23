@@ -1,0 +1,96 @@
+
+@font-face {
+	font-family: 'Pretendard';font-weight: 900;font-display: swap;
+	src:url('../font/Pretendard-Black.woff') format('woff');
+}
+@font-face {
+	font-family: 'Pretendard';font-weight: 800;font-display: swap;
+	src:url('../font/Pretendard-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';font-weight: 700;font-display: swap;
+	src:url('../font/Pretendard-Bold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';font-weight: 600;font-display: swap;
+	src:url('../font/Pretendard-SemiBold.woff') format('woff');
+}
+@font-face {
+	font-family: 'Pretendard';font-weight: 500;font-display: swap;
+	src:url('../font/Pretendard-Medium.woff') format('woff');
+}
+@font-face {
+	font-family: 'Pretendard';font-weight: 400;font-display: swap;
+	src:url('../font/Pretendard-Regular.woff') format('woff');
+}
+@font-face {
+	font-family: 'Pretendard';font-weight: 300;font-display: swap;
+	src:url('../font/Pretendard-Light.woff') format('woff');
+}
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 200;
+	font-display: swap;
+	src:url('../font/Pretendard-ExtraLight.woff') format('woff');
+}
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 100;
+	font-display: swap;
+	src:url('../font/Pretendard-Thin.woff') format('woff');
+}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Oswald:wght@500&display=swap');
+// font-family: 'DM Sans', sans-serif;
+// font-family: 'Oswald', sans-serif;
+:root{
+    --bgColor : #f4f2f4;
+	--bgColorG :#ebebeb;
+    --pointColor : #cfafda;
+}
+body{
+    font-family: 'Pretendard';
+    font-size: 16px;
+    color: #222; 
+    position: relative;
+    line-height: 1;
+    // min-width:764px;
+}
+.blind{
+    position: absolute;   
+    width: 1px;height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;  
+}
+.inner{
+    padding: 0 6.25vw;//
+    box-sizing: border-box;
+}
+$mobile :767px;
+$tablet : 1024px;
+$notebook: 1440px;
+$desktop: 1920px;
+
+@mixin mobile{ 
+    @media (max-width: $mobile){
+         @content;       
+    } 
+}
+@mixin tablet{ 
+    @media (max-width: $tablet){ 
+        @content; 
+    } 
+}
+@mixin notebook{ 
+    @media (max-width: $notebook){
+         @content; 
+    } 
+}
+@mixin desktop{ 
+    @media (max-width: $desktop){ 
+        @content; 
+    } 
+}
+
