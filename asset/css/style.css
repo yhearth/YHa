@@ -2,18 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Oswald:wght@500&display=swap");
 @font-face {
   font-family: "Pretendard";
-  font-weight: 900;
-  font-display: swap;
-  src: url("../font/Pretendard-Black.woff") format("woff");
-}
-@font-face {
-  font-family: "Pretendard";
-  font-weight: 800;
-  font-display: swap;
-  src: url("../font/Pretendard-ExtraBold.woff") format("woff");
-}
-@font-face {
-  font-family: "Pretendard";
   font-weight: 700;
   font-display: swap;
   src: url("../font/Pretendard-Bold.woff") format("woff");
@@ -47,12 +35,6 @@
   font-weight: 200;
   font-display: swap;
   src: url("../font/Pretendard-ExtraLight.woff") format("woff");
-}
-@font-face {
-  font-family: "Pretendard";
-  font-weight: 100;
-  font-display: swap;
-  src: url("../font/Pretendard-Thin.woff") format("woff");
 }
 :root {
   --bgColor: #f4f2f4;
@@ -591,7 +573,6 @@ main {
 @media (max-width: 767px) {
   .sc_main .main_visual .title .name > strong span {
     font-size: 4rem;
-    font-weight: 800;
   }
 }
 .sc_main .main_visual .intro {
@@ -1909,7 +1890,7 @@ main {
   left: 0;
   width: 0vw;
   height: 100vh;
-  background-color: #333;
+  background-color: var(--bgColorG);
   z-index: 100;
 }
 

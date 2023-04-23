@@ -88,7 +88,7 @@ window.addEventListener('scroll',(e)=>{
 const resumeLInk = document.querySelector('.resume_link');
 resumeLInk.addEventListener('click', (e) => {
     e.preventDefault();
-    const fileURL = './asset/img/홍연화_이력서_자기소개서.pdf';
+    const fileURL = './img/홍연화_이력서_자기소개서.pdf';
     const fileName = '이력서.pdf';
 
     const link = document.createElement('a');

@@ -581,7 +581,7 @@ main{
     position: fixed;
     top: 0;left: 0;
     width:0vw;height: 100vh;
-    background-color:#333;
+    background-color:var(--bgColorG);
     z-index: 100;
 
 }
