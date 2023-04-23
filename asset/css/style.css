@@ -374,6 +374,7 @@ main {
 @media (max-width: 767px) {
   .sc_main .main_visual {
     align-items: start;
+    padding: 60px 0;
   }
 }
 .sc_main .main_visual .date {
@@ -590,6 +591,7 @@ main {
 @media (max-width: 767px) {
   .sc_main .main_visual .title .name > strong span {
     font-size: 4rem;
+    font-weight: 800;
   }
 }
 .sc_main .main_visual .intro {
