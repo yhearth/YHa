@@ -4,8 +4,16 @@ const mainYha = document.querySelector('.sc_main .name');
 const YhaWrap = document.querySelectorAll('.sc_main .name strong');
 const yhaExplan = document.querySelectorAll('.sc_main .intro .explan span');
 const yhaLine = document.querySelector('.sc_main .intro .line i');
+const yhaPublis = document.querySelector('.sc_main .intro .publisher');
 const yhaLink = document.querySelector('.sc_main .link_work');
-yhaAni()
+
+if (window.matchMedia("screen and (min-width:767px)").matches){
+ 
+}
+window.onload = function(){
+    yhaAni()
+    yhaIntroAni()
+}
 function yhaAni(){
     for(let i = 0; i < YhaWrap.length; i++){
         let yhaSpan = YhaWrap[i].querySelector('span');
@@ -16,11 +24,11 @@ function yhaAni(){
         },i*80)
     }
 }
-yhaIntroAni()
 function yhaIntroAni(){
     setTimeout(()=>{
         yhaLine.style.width = '100%';
         yhaLine.style.transition = '.2s ease'
+        yhaPublis.classList.add('load');
         setTimeout(()=>{
             for(let e = 0; e <yhaExplan.length; e++){
                 setTimeout(()=>{
@@ -32,9 +40,7 @@ function yhaIntroAni(){
     },500)
 }
 //yha mouseover
-if (matchMedia("screen and (min-width:767px)").matches){
-    yhaOverAni()
-}
+yhaOverAni()
 function yhaOverAni(){
     mainYha.addEventListener('mouseover',()=>{
         for(let i = 0; i < YhaWrap.length; i++){
