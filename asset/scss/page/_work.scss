@@ -204,7 +204,7 @@ main{
                         width: 50%;height:0%;
                         overflow: hidden;
                         &.on{height: 1rem;;transition: all .5s ease;}
-                        span{font-size: 1rem;font-weight:200;float: right;}
+                        span{font-size: 1rem;font-weight:500;float: right;}
                     }
                 }
                 .skill{
@@ -407,7 +407,7 @@ main{
             background: url(../img/Fritze-intro.jpg)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/Fritze-intro.jpg)no-repeat center center / cover;}
+            @include mobile{background: url(../img/mobile/fritz_intro_m.jpg)no-repeat center center / cover;}
         }
         .info_group{
             .desc{
@@ -423,7 +423,7 @@ main{
             background: url(../img/tamburins_intro.jpg)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/tamburins_intro.jpg)no-repeat center center / cover;}
+            @include mobile{background: url(../img/mobile/tamburins_intro_m.jpg)no-repeat center center / cover;}
             .txt_wrap{
                 color:#fff;
                 .skill li{color:#fff}
@@ -443,7 +443,7 @@ main{
             background: url(../img/spotfy_intro.jpg)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/spotfy_intro.jpg)no-repeat center center / cover;}
+            @include mobile{background: url(../img/mobile/spotfy_intro_m.jpg)no-repeat center center / cover;}
             .txt_wrap{
                 color:#fff;
                 .skill li{color:#fff}
@@ -473,7 +473,7 @@ main{
             background: url(../img/hmg_intro.jpg)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/hmg_intro.jpg)no-repeat center center / cover;}
+            @include mobile{background: url(../img/mobile/hmg_intro_m.jpg)no-repeat center center / cover;}
             .txt_wrap{
                 color:#fff;
                 .skill li{color:#fff}
@@ -501,7 +501,7 @@ main{
             background: url(../img/repick_intro.jpg)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/repick_intro.jpg)no-repeat center center / cover;}
+            @include mobile{background: url(../img/mobile/repick_intro_m.jpg)no-repeat center center / cover;}
             .txt_wrap{
                 color:#fff;
                 .skill li{color:#fff}

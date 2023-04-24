@@ -181,7 +181,7 @@
                       </div>
                       <ul class="skill">
                           <li>( Web Design )</li>
-                          <li>( HTML / SCSS )</li>
+                          <li>( HTML / CSS )</li>
                           <li>( jQuery )</li>
                       </ul>
                   </div>
@@ -226,7 +226,8 @@
                                     <span class="code">code</span>
                                 </div>
                                 <p>이미지를 배열화 하여 setInterval()이벤트로 자동 이미지 슬라이드 구현</p>
-                                <p>click()이벤트를 사용해 버튼 조작</p>
+                                <p>재생 ,멈춤 아이콘을 클릭시 clearInterval()을 슬라이드 제어</p>
+                                <p>이전 ,다음 아이콘을 클릭시 click() 이벤트를 사용하여 이미지 슬라이드 구현</p>
                             </div>
                         </li>
                         <li class="content_coll">
@@ -240,8 +241,8 @@
                                     <strong>PRODUCT</strong>
                                     <span class="code">code</span>
                                 </div>
-                                <p>제품들을 배열화 하여 filter() 함수를 활용한 필터링 기능 구현</p>
-                                <p>change() 함수를 통해 반응형 갤러리 리스트 구현</p>
+                                <p>filter() 함수를 이용해 제품들을 배열화 한뒤 클릭한 제품만 보이도록 필터링 구현</p>
+                                <p>change() 함수를 통해 2단 그리드, 5단 그리드 반응형 갤러리 리스트 구현</p>
                             </div>
                         </li>
                         <li class="content_row">
@@ -256,7 +257,7 @@
                                         <strong>custom</strong>
                                         <span class="code">code</span>
                                     </div>
-                                    <p>click()함수와 setAttribute 사용자가 커스텀 할수있는 경험 제공</p>
+                                    <p>커스텀 색상 클릭시 setAttribute 이용해 사용자가 커스텀 할수있는 경험 제공</p>
                                 </div>
                             </div>
                             <div class="row_box">
@@ -270,7 +271,8 @@
                                         <strong>wish list</strong>
                                         <span class="code">code</span>
                                     </div>
-                                    <p>커스텀 이름으로 연결한뒤  innerHTML 리스트 추가와 리스트 삭제할수있는 UI 구현   </p>
+                                    <p>textContent을 이용해 이름을 지정할수 있도록 저장 기능 구현 </p>
+                                    <p>innerHTML 을 이용해 커스텀 아이템 추가와 remove()를 이용한 커스텀 아이템 삭제할수있는 UI 구현 </p>
                                 </div>
                             </div>
                         </li>
@@ -285,7 +287,7 @@
                                     <strong>LIVING</strong>
                                     <span class="code">code</span>
                                 </div>
-                                <p>css에서 그리드를 사용하여 레이아웃 구성 </p>
+                                <p>css에서 gird를 사용하여 레이아웃 구성 </p>
                                 <p>키프레임 애니메이션을 활용해 스크롤 이벤트를 구현</p>
                             </div>
                         </li>
@@ -342,13 +344,13 @@
                             <div class="desc">
                                 <ul>
                                     <li>기획 및 웹 디자인</li>
-                                    <li>멀티 슬라이드 구현 </li>
-                                    <li>필터 기능 </li>
-                                    <li>반응형 갤러리 리스트 구현</li>
-                                    <li>커스텀 ,장바구니 추가/삭제  UI 구현</li>
-                                    <li>키프레임 애니메이션을 활용한 스크롤 인터렉션</li>
-                                    <li>마이크로 인터렉션</li>
                                     <li>반응형 웹</li>
+                                    <li>자동 슬라이드 구현 </li>
+                                    <li>무한 슬라이드 구현 </li>
+                                    <li>필터링 기능 </li>
+                                    <li>반응형 갤러리 리스트 구현</li>
+                                    <li>커스텀 , 커스텀 저장 / 삭제 UI 구현</li>
+                                    <li>키프레임 애니메이션을 활용한 스크롤 인터렉션</li>
                                 </ul>
                             </div>
                             <ul class="skill">
@@ -356,9 +358,6 @@
                                 <li># HTML / SCSS</li>
                                 <li># Javascript</li>
                             </ul>
-                        </div>
-                        <div class="work_num">
-                            <span>01</span>
                         </div>
                     </div>
                 </div>
@@ -391,8 +390,9 @@
                                 <div class="desc">
                                     <strong>MAIN</strong>
                                 </div>
-                                <p>이미지를 배열화 하여 setInterval()이벤트로 자동 이미지 슬라이드 구현</p>
-                                <p>click()이벤트를 사용해 버튼 조작</p>
+                                <p>swiper 라이브러리를 이용한 이미지 슬라이드 구현</p>
+                                <p>gsap 라이브러리를 이용한 스크롤 애니메이션 구현</p>
+                                <p>swiper의 breakpoints 속성으로 슬라이드 반응형 구현</p>
                             </div>
                         </li>
                         <li class="content_row">
@@ -407,7 +407,7 @@
                                         <strong>gsap</strong>
                                         <span class="code">code</span>
                                     </div>
-                                    <p>click()함수와 setAttribute 사용자가 커스텀 할수있는 경험 제공</p>
+                                    <p>gsap 를 이용해 스크롤에 따른 scale,color backgroundColor 애니메이션</p>
                                 </div>
                             </div>
                             <div class="row_box">
@@ -421,7 +421,7 @@
                                         <strong>Swiper</strong>
                                         <span class="code">code</span>
                                     </div>
-                                    <p>커스텀 이름으로 연결한뒤  innerHTML 리스트 추가와 리스트 삭제할수있는 UI 구현   </p>
+                                    <p>swiper 의 renderBullet 속성을 이용해 이미지 슬라이드 디자인</p>
                                 </div>
                             </div>
                         </li>
@@ -446,9 +446,9 @@
                                 <ul>
                                     <li>기획 및 웹 디자인</li>
                                     <li>웹 표준 준수</li>
-                                    <li>Swiper 를 이용한 다양한 슬라이드 인터렉션 구현 </li>
-                                    <li>gsap 를 이용한 부드러운 스크롤 인터렉션 구현</li>
                                     <li>반응형 웹</li>
+                                    <li>Swiper 를 이용한 슬라이드 인터렉션 구현 </li>
+                                    <li>gsap 를 이용한 스크롤 인터렉션 구현</li>
                                     <li>풀 페이지</li>
                                 </ul>
                             </div>
@@ -457,9 +457,6 @@
                                 <li>( HTML / SCSS )</li>
                                 <li>( Javascript )</li>
                             </ul>
-                        </div>
-                        <div class="work_num">
-                            <span>02</span>
                         </div>
                     </div>
                 </div>
@@ -491,7 +488,7 @@
                                     <strong>MAIN</strong>
                                     <span class="code">code</span>
                                 </div>
-                                <p>click()함수와 setAttribute 사용자가 커스텀 할수있는 경험 제공</p>
+                                <p>$.getJSON을 이용해 동일한 레이아웃은 html에 작성하지 않고 서버에서 JSON 형식의 데이터를 비동기적으로 가져와 자동으로 나타나는 UI구현</p>
                             </div>
                         </li>
                     </ul>
@@ -517,9 +514,10 @@
                             <div class="desc">
                                 <ul>
                                     <li>웹 표준 준수</li>
-                                    <li>getJSON을 활용헤 서버로부터 JSON 데이터를 가져와 
-                                        UI 업데이트 하는 기능 구현</li>
                                     <li>모바일 웹</li>
+                                    <li>getJSON을 활용헤 서버로부터 JSON 데이터를 가져와 
+                                        UI 업데이트 하는 기능 구현
+                                    </li>
                                 </ul>
                             </div>
                             <ul class="skill">
@@ -527,9 +525,6 @@
                                 <li>( jQuery )</li>
                                 <li>( getJSON )</li>
                             </ul>
-                        </div>
-                        <div class="work_num">
-                            <span>03</span>
                         </div>
                     </div>
                 </div>
@@ -564,7 +559,7 @@
                                     <span class="code">code</span>
                                 </div>
                                 <p>좌우 버튼 클릭시 Swiper을 이용해 이미지 슬라이드 구현</p>
-                                <p>재생 버튼 클릭시 hasClass() 를 이용해  이미지 슬라이드 조작 </p>
+                                <p>재생 버튼 클릭시 hasClass() 를 이용해 이미지 슬라이드 조작 </p>
                             </div>
                         </li>
                         <li class="content_coll">
@@ -578,7 +573,7 @@
                                     <strong>moblie</strong>
                                     <span class="code">code</span>
                                 </div>
-                                <p>gsap 의 scrollTriggrt 을 이용해 sacle , opacity 조작하여 동적인 인터렉션 구현</p>
+                                <p>gsap 의 scrollTriggrt 을 이용해 sacle , opacity 조작하여 인터렉션 구현</p>
                             </div>
                         </li>
                     </ul>
@@ -602,9 +597,9 @@
                             <div class="desc">
                                 <ul>
                                     <li>웹 표준 준수</li>
+                                    <li>반응형 웹</li>
                                     <li>Swiper 를 이용한 슬라이드 인터렉션 구현</li>
                                     <li>gsap 를 이용한 스크롤 이벤트 인터렉션 구현</li>
-                                    <li>반응형 웹</li>
                                     <li>풀 페이지</li>
                                 </ul>
                             </div>
@@ -614,9 +609,6 @@
                                 <li>( Swiper )</li>
                                 <li>( gsap )</li>
                             </ul>
-                        </div>
-                        <div class="work_num">
-                            <span>04</span>
                         </div>
                     </div>
                 </div>
@@ -648,7 +640,7 @@
                                     <strong>App - ABOUT</strong>
                                     <span class="code">code</span>
                                 </div>
-                                <p>스크롤 이벤트를 사용하여 내용이 잘 전달 될수있도록 인터렉션을 구현 </p>
+                                <p>스크롤시 offsetTop , winHeight을 이용해 특정 위치에서 동적인 인터렉션 구현 </p>
                             </div>
                         </li>
                         <li class="content_coll">
@@ -662,8 +654,7 @@
                                     <strong>App - DESIGN</strong>
                                     <span class="code">code</span>
                                 </div>
-                                <p>좌우 버튼 클릭시 animation() 속성을 이용하여 이미지 슬라이드 구현</p>
-                                <p>text() 속성을 사용하여 내용도 같이 바꾸도록 코드를 작   </p>
+                                <p>텍스트를 배열화 하여 setInterval()로 랜덤으로 텍스트가 나오도록 구현</p>
                             </div>
                         </li>
                         <li class="content_coll">
@@ -678,7 +669,7 @@
                                     <span class="code">code</span>
                                 </div>
                                 <p>좌우 버튼 클릭시 animation() 속성을 이용하여 이미지 슬라이드 구현</p>
-                                <p>text() 속성을 사용하여 내용도 같이 바꾸도록 코드를 작   </p>
+                                <p>text() 속성으로 슬라이드 시 내용도 변경하도록 구현</p>
                             </div>
                         </li>
                     </ul>

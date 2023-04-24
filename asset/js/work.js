@@ -103,7 +103,7 @@ const mrepickSrc = [
     './asset/img/mobile/repick_slide.gif'
 ]
 const mImgSrc = [mfritzSrc ,mtamSrc ,mspotiSrc,mhmgSrc ,mrepickSrc]
-
+///////////////////////////////////////////////
 window.onload = function(){
     reset();
     workIntroAni();
@@ -137,6 +137,7 @@ function reset(){
         workNum[t].style.visibility = 'hidden'
     }
 }
+
 //sc_work onload Ani
 function workIntroAni(){
     setTimeout(() => {
@@ -585,3 +586,4 @@ function mMvChange(mAllImgBox){
         mGallImgBox[m].innerHTML = ` <img src="${mImgSrc[workIndex][m]}" alt="" width="100%">`
     }
 }
+
