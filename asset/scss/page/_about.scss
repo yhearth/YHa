@@ -26,7 +26,7 @@ main{
         }
         .txt_wrap{
             position: relative;
-            line-height: 1.7; letter-spacing:-1px;
+            line-height: 1.8; letter-spacing:-1px;
             .main_title{
                 position: relative;
                 font-size: 3rem;font-weight:600;color:#333333; 
@@ -85,36 +85,36 @@ main{
      
         section{
             position: relative;width: 100%;margin-bottom:80px;
-            display: flex;justify-content: space-between;
-            @include mobile{
+            display: flex;justify-content:space-around;
+            @include tablet{
                 flex-direction: column;
                 padding: 30px 0; box-sizing: border-box;
                 margin-bottom: 40px;
                 border-bottom: 1px solid #ccc;
             }
             .title{
-                @include mobile{display: flex;align-items: center;justify-content: space-between;margin-bottom:2rem;}
+                min-width:260px;
+                @include tablet{display: flex;align-items: center;justify-content: space-between;margin-bottom:2rem;}
                h4{
-                font-size:1.5rem;font-weight:600;margin-bottom:20px;line-height: 1.2;color:#454545;
-                @include tablet{font-size: 1.2rem;}
+                font-size:1.3rem;font-weight:600;margin-bottom:20px;line-height: 1.2;color:#454545;
                 @include mobile{margin: 0;}
                }
                span{color:#ADADAD; @include mobile{font-size: 0.8rem;}}
             }
             .explan_wrap{
-                width: calc((100% / 3)* 2);
-                padding:0 6.25vw;box-sizing: border-box;
-                @include mobile{width: 100%;padding: 0;}
+                // width: calc((100% / 3)* 1.8);
+                max-width: 722px;margin-left: auto;
+                @include tablet{width: 100%;margin: 0;}
                 strong{
-                    font-size: 1.3rem;font-weight:500;color:#454545;
-                    margin-bottom:20px;display: block;
+                    font-size: 1.5rem;font-weight:500;color:#454545;
+                    margin-bottom:20px;display: block;letter-spacing: -.5px;
                     @include tablet{font-size: 1rem;}
                 }
                 p{
                     font-size: 1.3rem;font-weight:200;line-height:1.8;
                     margin-bottom:60px;color:#454545;
                     .bold{background-color: #f8ecff;}
-                    word-break:keep-all;
+                    // word-break:keep-all;
                     @include tablet{font-size: 1rem;}
                     @include mobile{margin-bottom:30px;}
                 }
@@ -134,24 +134,25 @@ main{
 }
 .footer_wrap{
     display: flex;
-    @include mobile{flex-direction: column-reverse;}
+    @include tablet{flex-direction: column-reverse;}
     .img_wrap{
         position: relative;
         width:40%;
-        @include mobile{width: 100%;}
+        @include tablet{width: 100%;}
         .img_box{
             position: absolute;width: 100%;
             top:0%;left: 50%;transform: translate(-50%,0%);
             img{
                 width: 100%;object-fit: cover;transform: scale(1.05);
-                @include mobile{transform: scale(1);}
+                @include tablet{transform: scale(1);}
             }
         }
     }
     .txt_wrap{
         width: 45%;
         padding:0 3.125vw;box-sizing: border-box;
-        @include mobile{width: 100%;padding:0 6.25vw}
+        @include tablet{width: 100%;padding:0 12.5vw}
+        @include mobile{padding:0 6.25vw}
         .explan{
             font-size:1.5rem;font-weight: 500;line-height: 1.6;margin-bottom:30px;color:var(--pointColor);
             @include tablet{font-size: 1.2rem;}

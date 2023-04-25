@@ -107,6 +107,8 @@ const mImgSrc = [mfritzSrc ,mtamSrc ,mspotiSrc,mhmgSrc ,mrepickSrc]
 window.onload = function(){
     reset();
     workIntroAni();
+    workMouseAni()
+    workClickAni();
 }
 window.onresize = function(){
     if (window.matchMedia("(min-width: 768px)").matches){
@@ -228,7 +230,7 @@ function ursorAni(){
     }
 }
 // work mouseover
-workMouseAni()
+// workMouseAni()
 function workMouseAni(){
     for( let l = 0; l <workLink.length; l++){
         let numEnter = workLink[l].querySelector('.num_wrap span');
@@ -320,7 +322,7 @@ for( let d = 0; d < workLink.length; d++){
     
 }
 //work click
-workClickAni();
+// workClickAni();
 function workClickAni(){  
     //cursor 없애기
     for( let c = 0; c < workLink.length; c++){

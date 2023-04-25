@@ -52,7 +52,7 @@ for(let i = 0; i < abResume.length; i++){
 //다운로드 링크
 abLIDown.addEventListener('click', (e) => {
     e.preventDefault();
-    const fileURL = './asset/img/홍연화_이력서_자기소개서.pdf';
+    const fileURL = '../asset/img/홍연화_이력서_자기소개서.pdf';
     const fileName = '홍연화_이력서.pdf';
 
     const link = document.createElement('a');

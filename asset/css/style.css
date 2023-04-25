@@ -2003,7 +2003,7 @@ main {
 }
 .introduce_area .sc_intro .txt_wrap {
   position: relative;
-  line-height: 1.7;
+  line-height: 1.8;
   letter-spacing: -1px;
 }
 .introduce_area .sc_intro .txt_wrap .main_title {
@@ -2132,9 +2132,9 @@ main {
   width: 100%;
   margin-bottom: 80px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .introduce_area .contect_group section {
     flex-direction: column;
     padding: 30px 0;
@@ -2143,7 +2143,10 @@ main {
     border-bottom: 1px solid #ccc;
   }
 }
-@media (max-width: 767px) {
+.introduce_area .contect_group section .title {
+  min-width: 260px;
+}
+@media (max-width: 1024px) {
   .introduce_area .contect_group section .title {
     display: flex;
     align-items: center;
@@ -2152,16 +2155,11 @@ main {
   }
 }
 .introduce_area .contect_group section .title h4 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 20px;
   line-height: 1.2;
   color: #454545;
-}
-@media (max-width: 1024px) {
-  .introduce_area .contect_group section .title h4 {
-    font-size: 1.2rem;
-  }
 }
 @media (max-width: 767px) {
   .introduce_area .contect_group section .title h4 {
@@ -2177,22 +2175,22 @@ main {
   }
 }
 .introduce_area .contect_group section .explan_wrap {
-  width: 66.6666666667%;
-  padding: 0 6.25vw;
-  box-sizing: border-box;
+  max-width: 722px;
+  margin-left: auto;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .introduce_area .contect_group section .explan_wrap {
     width: 100%;
-    padding: 0;
+    margin: 0;
   }
 }
 .introduce_area .contect_group section .explan_wrap strong {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #454545;
   margin-bottom: 20px;
   display: block;
+  letter-spacing: -0.5px;
 }
 @media (max-width: 1024px) {
   .introduce_area .contect_group section .explan_wrap strong {
@@ -2205,7 +2203,6 @@ main {
   line-height: 1.8;
   margin-bottom: 60px;
   color: #454545;
-  word-break: keep-all;
 }
 .introduce_area .contect_group section .explan_wrap p .bold {
   background-color: #f8ecff;
@@ -2250,7 +2247,7 @@ main {
 .footer_wrap {
   display: flex;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .footer_wrap {
     flex-direction: column-reverse;
   }
@@ -2259,7 +2256,7 @@ main {
   position: relative;
   width: 40%;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .footer_wrap .img_wrap {
     width: 100%;
   }
@@ -2277,7 +2274,7 @@ main {
      object-fit: cover;
   transform: scale(1.05);
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .footer_wrap .img_wrap .img_box img {
     transform: scale(1);
   }
@@ -2287,9 +2284,14 @@ main {
   padding: 0 3.125vw;
   box-sizing: border-box;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .footer_wrap .txt_wrap {
     width: 100%;
+    padding: 0 12.5vw;
+  }
+}
+@media (max-width: 767px) {
+  .footer_wrap .txt_wrap {
     padding: 0 6.25vw;
   }
 }
