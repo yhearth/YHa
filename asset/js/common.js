@@ -86,23 +86,15 @@ window.addEventListener('scroll',(e)=>{
 
 //
 const resumeLInk = document.querySelector('.resume_link');
-resumeLInk.addEventListener('click', (e) => {
-    e.preventDefault();
-    // const fileURL = '../asset/img/resume.pdf';
-    // const fileName = '홍연화_이력서.pdf';
+// resumeLInk.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     // const fileURL = '../asset/img/resume.pdf';
+//     // const fileName = '홍연화_이력서.pdf';
 
-    // const downloadLink = document.createElement("a");
+//     // const downloadLink = document.createElement("a");
 
-    // downloadLink.setAttribute("href",fileURL);
-    // downloadLink.setAttribute("download",fileName);
+//     // downloadLink.setAttribute("href",fileURL);
+//     // downloadLink.setAttribute("download",fileName);
 
-    // downloadLink.click();
-});
-function download(){
-    const link = document.createElement('a');
-    link.href = '../asset/img/resume.pdf'
-    link.download = '홍연화_이력서.pdf'
-    link.click();
-
-}
-
+//     // downloadLink.click();
+// });

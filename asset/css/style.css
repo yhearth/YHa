@@ -258,6 +258,8 @@ header.on ::before {
 }
 .navigation .menu_group .resume {
   position: relative;
+  color: #777777;
+  line-height: 1.8;
 }
 @media (max-width: 767px) {
   .navigation .menu_group .resume {
@@ -267,11 +269,30 @@ header.on ::before {
     box-sizing: border-box;
   }
 }
-.navigation .menu_group .resume input {
-  border: none;
-  background-color: transparent;
-  color: #777777;
-  line-height: 1.8;
+.navigation .menu_group .resume a {
+  display: block;
+}
+.navigation .menu_group .resume span {
+  color: var(--pointColor);
+}
+.navigation .menu_group .resume :hover ::after {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .navigation .menu_group .resume :hover ::after {
+    width: 0;
+  }
+}
+.navigation .menu_group .resume ::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--pointColor);
+  transition: all 0.5s ease;
 }
 .navigation .m_btn {
   position: relative;
