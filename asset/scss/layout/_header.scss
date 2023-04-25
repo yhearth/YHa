@@ -77,25 +77,30 @@ header{
             }
         }
         .resume{
-            position: relative;color:#777777;line-height: 1.8;
+            position: relative;
             @include mobile{
                 width: 100%;margin-top: 2rem;
                 padding: 6.25vw 20px;box-sizing: border-box;
             }
-            a{display: block;}
-            span{ color:var(--pointColor);}
-            :hover{
-                ::after{width:100%; @include mobile{width: 0;}}
+            input{
+                border: none;
+                background-color:transparent;
+                color:#777777;line-height: 1.8;
+                // &:after{
+                //     content: '';
+                //     display: block;
+                //     width:0%;height: 2px;
+                //     position: absolute;
+                //     bottom: 0;left: 0;
+                //     background-color: var(--pointColor);
+                //     transition: all .5s ease;
+                // }
+                // &:hover{
+                //     ::after{width:100%; @include mobile{width: 0;}}
+                // }
             }
-            ::after{
-                content: '';
-                display: block;
-                width:0%;height: 2px;
-                position: absolute;
-                bottom: 0;left: 0;
-                background-color: var(--pointColor);
-                transition: all .5s ease;
-            }
+            
+           
             
         }
 
