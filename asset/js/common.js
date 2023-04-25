@@ -91,9 +91,11 @@ resumeLInk.addEventListener('click', (e) => {
     const fileURL = '../asset/img/홍연화_이력서_자기소개서.pdf';
     const fileName = '홍연화_이력서.pdf';
 
-    const link = document.createElement('a');
-    link.href = fileURL;
-    link.download = fileName;
-    link.click();
+    const downloadLink = document.createElement("a");
+
+    downloadLink.setAttribute("href",fileURL);
+    downloadLink.setAttribute("download",fileName);
+
+    downloadLink.click();
 });
 
