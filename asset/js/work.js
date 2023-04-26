@@ -48,13 +48,15 @@ const codeXBtn = document.querySelector('.work_page .x_btn')
 let workIndex = 0;
 let codeIndex = 0;
 
-window.onload = function(){
-    reset();
-    // workIntroAni();
+// window.onload = function(){
+//     window.scrollTo(0, 0);
+//     horizonWrap.style.left = 0;
+//    // reset();
+//     // workIntroAni();
     
-    workMouseAni()
-    workClickAni();
-}
+//     // workMouseAni()
+//     // workClickAni();
+// }
 window.onresize = function(){
     if (window.matchMedia("(min-width: 768px)").matches){
         document.location.reload();
@@ -65,12 +67,11 @@ window.onresize = function(){
     }
 };
 //reset
+reset();
 function reset(){
-    window.scrollTo(0, 0);
-    horizonWrap.style.left = 0;
     
-    onCursor = false
-    isScroll = false  
+    // onCursor = false
+    // isScroll = false  
 
     workIndex = 0;
     codeIndex = 0;
@@ -175,7 +176,7 @@ function ursorAni(){
     }
 }
 // work mouseover
-// workMouseAni()
+workMouseAni()
 function workMouseAni(){
     for( let l = 0; l <workLink.length; l++){
         let numEnter = workLink[l].querySelector('.num_wrap span');
@@ -267,7 +268,7 @@ for( let d = 0; d < workLink.length; d++){
     
 }
 //work click
-// workClickAni();
+workClickAni();
 function workClickAni(){  
     //cursor 없애기
     for( let c = 0; c < workLink.length; c++){

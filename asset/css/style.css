@@ -855,8 +855,9 @@ main {
   top: 0;
   left: 0;
   width: 2492px;
-  height: 100vh;
+  height: calc(100vh - 80px);
   display: flex;
+  margin-top: 80px;
 }
 @media (max-width: 1440px) {
   .sc_work .horison_wrap {

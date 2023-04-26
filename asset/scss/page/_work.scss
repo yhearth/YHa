@@ -13,8 +13,9 @@ main{
     @include mobile{ height:calc(220px * 5);}
     .horison_wrap{
         position: fixed;top: 0;left: 0;
-        width:calc((384px * 5) + 572px);height: 100vh;
+        width:calc((384px * 5) + 572px);height: calc(100vh - 80px);
         display: flex;
+        margin-top: 80px;
         @include notebook{width:calc((288px * 5) + 432px);}
         @include tablet{width:calc((260px * 5) + 390px);}
         @include mobile{
