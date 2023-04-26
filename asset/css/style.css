@@ -1675,28 +1675,28 @@ main {
     height: 280px;
   }
 }
-.work_page .tanburins_area .work_intro {
+.work_page .tamburins_area .work_intro {
   background: url(../img/tamburins_intro.jpg) no-repeat center center/cover;
   background-attachment: fixed;
   background-position: center;
 }
 @media (max-width: 767px) {
-  .work_page .tanburins_area .work_intro {
+  .work_page .tamburins_area .work_intro {
     background: url(../img/mobile/tamburins_intro_m.jpg) no-repeat center center/cover;
   }
 }
-.work_page .tanburins_area .work_intro .txt_wrap {
+.work_page .tamburins_area .work_intro .txt_wrap {
   color: #fff;
 }
-.work_page .tanburins_area .work_intro .txt_wrap .skill li {
+.work_page .tamburins_area .work_intro .txt_wrap .skill li {
   color: #fff;
 }
 @media (max-width: 767px) {
-  .work_page .tanburins_area .info_group .desc {
+  .work_page .tamburins_area .info_group .desc {
     height: 0;
     transition: all 0.5s ease;
   }
-  .work_page .tanburins_area .info_group .desc.on {
+  .work_page .tamburins_area .info_group .desc.on {
     height: 210px;
   }
 }
