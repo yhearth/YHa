@@ -49,17 +49,7 @@ for(let i = 0; i < abResume.length; i++){
         abResume[i].classList.remove('on')
    })
 }
-//다운로드 링크
-abLIDown.addEventListener('click', (e) => {
-    e.preventDefault();
-    const fileURL = '../asset/img/홍연화_이력서_자기소개서.pdf';
-    const fileName = '홍연화_이력서.pdf';
 
-    const link = document.createElement('a');
-    link.href = fileURL;
-    link.download = fileName;
-    link.click();
-});
 //contact 이동
 abLiCt.addEventListener('click',(e)=>{
     e.preventDefault();

@@ -855,9 +855,8 @@ main {
   top: 0;
   left: 0;
   width: 2492px;
-  height: calc(100vh - 80px);
+  height: 100%;
   display: flex;
-  margin-top: 80px;
 }
 @media (max-width: 1440px) {
   .sc_work .horison_wrap {
@@ -1033,7 +1032,7 @@ main {
 .sc_work .horison_wrap .work_link .work_group .num_wrap {
   padding: 0 0.5vw;
   box-sizing: border-box;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 @media (max-width: 767px) {
   .sc_work .horison_wrap .work_link .work_group .num_wrap {
@@ -1055,7 +1054,7 @@ main {
 .sc_work .horison_wrap .work_link .work_group .txt_wrap {
   position: relative;
   width: 100%;
-  min-height: 280px;
+  min-height: 240px;
   padding: 0px 0.5vw;
   box-sizing: border-box;
   opacity: 0;

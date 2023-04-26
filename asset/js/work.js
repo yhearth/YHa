@@ -54,8 +54,8 @@ window.onresize = function(){
         document.location.reload();
         window.scrollTo(0, 0);
         horizonWrap.style.left = 0;
-    }else if(window.matchMedia("(max-width: 768px)").matches){
-        mMvPgChk();
+    }else if(window.matchMedia("(max-width: 767px)").matches){
+        mMvPgChk()
     }
 };
 //reset
@@ -113,6 +113,7 @@ window.addEventListener('scroll',()=>{
     v = window.scrollY;
     translateX = (secGet.height - secGet.width) * ((v / (secGet.height - horGet.height)) * -1);
     horizonWrap.style.left = `${translateX}px`;
+    console.log(translateX);
 }) 
 //cursor
 window.addEventListener('mousemove',(e)=>{
@@ -274,8 +275,7 @@ function workClickAni(){
             cursorAni();
             //페이지 이동 애니메이션
             pageMoveAni();
-            //header scroll on 
-            onWkPgScroll = false;
+            //header scroll 
             workPgScroll();
 
             console.log('클릭')
@@ -387,34 +387,24 @@ function pgIntroOpen(intro){
     workPgScroll();//work page open scroll
 }
 //header bg scroll
-let onWkPgScroll = false;
 function workPgScroll(){
-    if(!onWkPgScroll){
-        window.addEventListener('scroll',(e)=>{
-            e.preventDefault(); 
-                //info scroll fixed
-                for(let i =0; i < infoArea.length;i++){
-                    let scrollNow = document.documentElement.scrollTop;
-                    let winHeight = window.innerHeight;   
-                    let infoAreaBt = infoArea[i].offsetTop;//요소의 bottom
-                    let infoAreaTop = infoAreaBt - winHeight; //요소의 top
-                    let bgProPer = 0;
-                    bgProPer = (scrollNow - infoAreaTop) / winHeight * 10;
-                    if( 20 <= bgProPer){
-                        infoArea[i].classList.add('fix');
-                        if(matchMedia('screen and(max-width:786px)').matches){
-                            //infoArea[i].classList.remove('fix');
-                        }
-                    }else if(20 > bgProPer){
-                        infoArea[i].classList.remove('fix');
-                    }
+    window.addEventListener('scroll',(e)=>{
+        e.preventDefault(); 
+            //info scroll fixed
+            for(let i =0; i < infoArea.length;i++){
+                let scrollNow = document.documentElement.scrollTop;
+                let winHeight = window.innerHeight;   
+                let infoAreaBt = infoArea[i].offsetTop;//요소의 bottom
+                let infoAreaTop = infoAreaBt - winHeight; //요소의 top
+                let bgProPer = 0;
+                bgProPer = (scrollNow - infoAreaTop) / winHeight * 10;
+                if( 20 <= bgProPer){
+                    infoArea[i].classList.add('fix');
+                }else if(20 > bgProPer){
+                    infoArea[i].classList.remove('fix');
                 }
-        })      
-    }else if(onWkPgScroll){
-        for(let i = 0; i < infoArea.length;i++){
-            infoArea[i].classList.remove('fix');
-        }
-    }
+            }
+    }) 
 }
 //page out
 pageOut.addEventListener('click',()=>{
@@ -423,9 +413,6 @@ pageOut.addEventListener('click',()=>{
     //header color reset
     headChange = true;
     headColor();
-    //header bg reset 
-    onWkPgScroll = true;
-    workPgScroll();
     //cursor reset
     onCursor = false;
     cursorAni();
@@ -499,19 +486,27 @@ for(let b = 0; b < mInfoPlus.length; b++){
     })
 }
 //모바일 비디오 변경
+
+
+let mWorkIndex;
+if(window.matchMedia("(max-width: 767px)").matches){mMvPgChk()}
+
 function mMvPgChk(){
     for( let w = 0; w < workPgWrap.length; w++){
-        if(workPgWrap[w].classList.contains('fritz')){
+        mWorkIndex = w;
+        console.log(mWorkIndex);
+        if(workPgWrap[w].classList.contains('fritz_area')){
                 mMvChange(fritzArea);
-        }else if(workLink[w].classList.contains('tamburins')){
-                mMvChange(tanburinsArea);
-        }else if(workLink[w].classList.contains('spotfy')){
+        }else if(workLink[w].classList.contains('tamburins_area')){
+                mMvChange(tanburinsArea);          
+        }else if(workLink[w].classList.contains('spotfy_area')){
                 mMvChange(spotfyArea);
-        }else if(workLink[w].classList.contains('hmg')){
+        }else if(workLink[w].classList.contains('hmg_area')){
                 mMvChange(hmgArea);
-        }else if(workLink[w].classList.contains('repick')){
+        }else if(workLink[w].classList.contains('repick_area')){
                 mMvChange(repickArea);
         }
+
 }
 }
 function mMvChange(mAllImgBox){
@@ -519,9 +514,11 @@ function mMvChange(mAllImgBox){
     let mGallMv = mAllImgBox.querySelectorAll('.mv');
     for(let m = 0 ;m < mGallMv.length; m++){
         mGallMv[m].remove();
-        mGallImgBox[m].innerHTML = ` <img src="${mImgSrc[workIndex][m]}" alt="" width="100%">`
+        mGallImgBox[m].innerHTML = ` <img src="${mImgSrc[mWorkIndex][m]}" alt="" width="100%">`
     }
 }
+
+
 
 
 
