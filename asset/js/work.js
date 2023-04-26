@@ -48,15 +48,7 @@ const codeXBtn = document.querySelector('.work_page .x_btn')
 let workIndex = 0;
 let codeIndex = 0;
 
-window.onload = function(){
-    // window.scrollTo(0, 0);
-    // horizonWrap.style.left = 0;
-    //reset();
-    // workIntroAni();
-    
-    workMouseAni()
-    workClickAni();
-}
+// window.onload = function(){ }
 window.onresize = function(){
     if (window.matchMedia("(min-width: 768px)").matches){
         document.location.reload();
@@ -86,6 +78,7 @@ window.onresize = function(){
 //         workNum[t].style.visibility = 'hidden'
 //     }
 // }
+
 //sc_work onload Ani
 workIntroAni();
 function workIntroAni(){

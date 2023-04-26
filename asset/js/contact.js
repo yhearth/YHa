@@ -3,8 +3,7 @@
 const contactSpan = document.querySelectorAll('.contact_area .tit span');
 const contactSns = document.querySelectorAll('.contact_area .sns_wrap>div');
 contactIntroAni()
-function contactIntroAni(){
-    
+function contactIntroAni(){ 
     setTimeout(()=>{
         for(let i = 0; i <contactSpan.length; i++){
             setTimeout(()=>{
@@ -12,7 +11,7 @@ function contactIntroAni(){
                 contactSpan[i].style.transition = '.5s ease';
             },i*150)
         }
-    },200)
+    })
 }
 
 
