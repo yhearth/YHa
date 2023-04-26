@@ -51,6 +51,7 @@ let codeIndex = 0;
 window.onload = function(){
     reset();
     workIntroAni();
+    
     workMouseAni()
     workClickAni();
 }
@@ -116,10 +117,8 @@ window.addEventListener('scroll',()=>{
     secGet = workCt.getBoundingClientRect();
     horGet = horizonWrap.getBoundingClientRect();
     v = window.scrollY;
-    //console.log(secGet,horGet,v)
     translateX = (secGet.height - secGet.width) * ((v / (secGet.height - horGet.height)) * -1);
     horizonWrap.style.left = `${translateX}px`;
-   // console.log('translateX : ', translateX);
 }) 
 //cursor
 window.addEventListener('mousemove',(e)=>{
@@ -240,7 +239,7 @@ for( let d = 0; d < workLink.length; d++){
     workLink[d].addEventListener('mousedown',(e)=>{
         e.stopPropagation();
         if(!isMouseDown){
-            console.log('마우스 다운');
+            //console.log('마우스 다운');
             prevItem.forEach(siblingItem => {
                 siblingItem.classList.add('mouseDown')
             });
@@ -253,7 +252,7 @@ for( let d = 0; d < workLink.length; d++){
     workLink[d].addEventListener('mouseup',(e)=>{
         // e.stopPropagation();
         if(isMouseDown){
-            console.log('마우스 업');
+           // console.log('마우스 업');
             prevItem.forEach(siblingItem => {
                 siblingItem.classList.remove('mouseDown')
             });
@@ -272,10 +271,10 @@ function workClickAni(){
     //cursor 없애기
     for( let c = 0; c < workLink.length; c++){
         workLink[c].addEventListener('click',(e)=>{
-
+            e.preventDefault();
             workIndex = c;
             console.log(workIndex);
-            e.preventDefault();
+
             //cursor 없애기
             onCursor = true;
             cursorAni();
@@ -454,7 +453,6 @@ function pgIntroOut(){
     }
 }
 
-
 //workCode click
 function workCode(thisPg){
     codeIndex = thisPg.querySelectorAll('.code');
@@ -489,12 +487,10 @@ codeXBtn.addEventListener('click',()=>{
 })
 
 
-
 ///moblie ++ click 
 const mInfoUl = document.querySelectorAll('.work_page .work_wrap .info_group .desc');
 const mInfoPlus = document.querySelectorAll('.work_page .work_wrap .info_group .block');
 let ulOpen = false;
-
 for(let b = 0; b < mInfoPlus.length; b++){
     mInfoPlus[b].addEventListener('click',()=>{
         for(let u = 0; u < mInfoUl.length; u++){
@@ -508,7 +504,6 @@ for(let b = 0; b < mInfoPlus.length; b++){
         }
     })
 }
-
 //모바일 비디오 변경
 function mMvPgChk(){
     for( let w = 0; w < workPgWrap.length; w++){
