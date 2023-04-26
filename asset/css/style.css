@@ -916,7 +916,7 @@ main {
   overflow: hidden;
 }
 .sc_work .horison_wrap .work_web .txt_wrap.on {
-  height: 32%;
+  height: 35%;
   transition: all 0.5s ease;
 }
 @media (max-width: 767px) {

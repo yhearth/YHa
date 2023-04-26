@@ -38,7 +38,7 @@ main{
                 display: flex; flex-direction: column; align-items: center;
                 overflow: hidden;
                 &.on{
-                    height: 32%;transition: all .5s ease;
+                    height: 35%;transition: all .5s ease;
                     @include mobile{height: 60px;}
                 }
                 @include mobile{ padding:0 6.25vw;box-sizing: border-box;}
