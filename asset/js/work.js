@@ -503,13 +503,13 @@ function mMvPgChk(){
     for( let w = 0; w < workPgWrap.length; w++){
         if(workPgWrap[w].classList.contains('fritz')){
                 mMvChange(fritzArea);
-        }else if(workLink[c].classList.contains('tamburins')){
+        }else if(workLink[w].classList.contains('tamburins')){
                 mMvChange(tanburinsArea);
-        }else if(workLink[c].classList.contains('spotfy')){
+        }else if(workLink[w].classList.contains('spotfy')){
                 mMvChange(spotfyArea);
-        }else if(workLink[c].classList.contains('hmg')){
+        }else if(workLink[w].classList.contains('hmg')){
                 mMvChange(hmgArea);
-        }else if(workLink[c].classList.contains('repick')){
+        }else if(workLink[w].classList.contains('repick')){
                 mMvChange(repickArea);
         }
 }
