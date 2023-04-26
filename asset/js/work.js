@@ -494,7 +494,6 @@ if(window.matchMedia("(max-width: 767px)").matches){mMvPgChk()}
 function mMvPgChk(){
     for( let w = 0; w < workPgWrap.length; w++){
         mWorkIndex = w;
-        console.log( mWorkIndex);
         if(workPgWrap[w].classList.contains('fritz_area')){
                 mMvChange(fritzArea);
         }else if(workPgWrap[w].classList.contains('tamburins_area')){
