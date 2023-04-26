@@ -95,7 +95,7 @@ main{
                     border-radius:1rem; box-shadow: 10px 10px 30px #00000030;
                     text-align: center;
                     opacity: 0;
-                    &.load{animation: loadAni 1s ease forwards;}
+                    &.load{animation: loadAni .8s ease forwards;}
                     @keyframes loadAni {
                         0%{transform: translateX(3.125vw) translateY(-50px)rotate(0deg);opacity:0;}
                         75%{transform: translateX(3.125vw) translateY(-50px)rotate(-20deg);}

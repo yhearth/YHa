@@ -157,7 +157,7 @@ main{
          .footer_wrap{
              padding:30px 12.5vw;box-sizing: border-box;
              display: flex;align-items: center;justify-content:space-between;
-             font-size: 1rem;
+             font-size: .8rem;color:#ccc;
              @include mobile{padding: 20px 6.25vw;flex-direction: column;align-items: start;}
              span{
                  display: block;color:var(--pointColor);font-weight: 600;line-height: 1.6;

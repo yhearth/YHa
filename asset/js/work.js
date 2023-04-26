@@ -42,68 +42,12 @@ const repickArea = document.querySelector('.repick_area')
 const codeBtn = document.querySelectorAll('.work_page .code')
 const codeBox = document.querySelector('.work_page .code_wrap')
 const codeImg = document.querySelector('.work_page .code_box')
+const codeTxt = document.querySelector('.work_page .code_box code')
 const codeXBtn = document.querySelector('.work_page .x_btn')
 
 let workIndex = 0;
 let codeIndex = 0;
 
-const fritzCodeSrc = [
-    './asset/img/code/fritz_main_code.jpg',
-    './asset/img/code/fritz_product_code.jpg',
-    './asset/img/code/fritz_custom_code.jpg',
-    './asset/img/code/fritz_wishAdd_code.jpg',
-    './asset/img/code/fritz_living_code.jpg',
-    './asset/img/code/fritz_designer_code.jpg',
-    './asset/img/code/fritz_history_code.jpg',
-]
-const tamCodeSrc = [
-    './asset/img/code/tamburins_gsap_code.jpg',
-    './asset/img/code/tamburins_swiper_code.jpg',
-]
-const spotiCodeSrc = [
-    './asset/img/code/spotfy_getJson_code.jpg',
-]
-const hmgCodeSrc = [
-    './asset/img/code/hmg_swiper_code.jpg',
-    './asset/img/code/hmg_m_code.jpg',
-]
-const repickCodeSrc = [
-    './asset/img/code/repick_scroll_code.jpg',
-    './asset/img/code/repick_click_code.jpg',
-    './asset/img/code/repick_slide_code.jpg',
-]
-const codeSrc = [fritzCodeSrc ,tamCodeSrc ,spotiCodeSrc,hmgCodeSrc ,repickCodeSrc]
-
-
-//mobile
-const mfritzSrc = [
-    './asset/img/mobile/fritz_main.gif',
-    './asset/img/mobile/fritz_product.gif',
-    './asset/img/mobile/fritz_custom.gif',
-    './asset/img/mobile/fritz_wishAdd.gif',
-    './asset/img/mobile/fritz_living.gif',
-    './asset/img/mobile/fritz_designer.gif',
-    './asset/img/mobile/fritz_history.gif'
-]
-const mtamSrc = [
-    './asset/img/mobile/tamburins_main.gif',
-    './asset/img/mobile/tamburins_gsap.gif',
-    './asset/img/mobile/tamburins_swiper.gif'
-]
-const mspotiSrc = [
-    './asset/img/mobile/spotfy_getJson.gif'
-]
-const mhmgSrc = [
-    './asset/img/mobile/hmg_swiper.gif',
-    './asset/img/mobile/hmg_m_code.gif'
-]
-const mrepickSrc = [
-    './asset/img/mobile/repick_scroll.gif',
-    './asset/img/mobile/repick_click.gif',
-    './asset/img/mobile/repick_slide.gif'
-]
-const mImgSrc = [mfritzSrc ,mtamSrc ,mspotiSrc,mhmgSrc ,mrepickSrc]
-///////////////////////////////////////////////
 window.onload = function(){
     reset();
     workIntroAni();
@@ -115,6 +59,8 @@ window.onresize = function(){
         document.location.reload();
         window.scrollTo(0, 0);
         horizonWrap.style.left = 0;
+    }else if(window.matchMedia("(max-width: 768px)").matches){
+        mMvPgChk();
     }
 };
 //reset
@@ -139,7 +85,6 @@ function reset(){
         workNum[t].style.visibility = 'hidden'
     }
 }
-
 //sc_work onload Ani
 function workIntroAni(){
     setTimeout(() => {
@@ -345,40 +290,25 @@ function workClickAni(){
                 fritzArea.style.display = 'block'
                 pgIntroOpen(fritzArea);
                 workCode(fritzArea);  
-                if (window.matchMedia("(max-width: 768px)").matches){
-                    mMvChange(fritzArea);
-                }
             }else if(workLink[c].classList.contains('tamburins')){
                 tanburinsArea.style.display = 'block'
                 pgIntroOpen(tanburinsArea);
                 workCode(tanburinsArea);
-                if (window.matchMedia("(max-width: 768px)").matches){
-                    mMvChange(tanburinsArea);
-                }
                 headColor();
             }else if(workLink[c].classList.contains('spotfy')){
                 spotfyArea.style.display = 'block'
                 pgIntroOpen(spotfyArea);
                 workCode(spotfyArea);
-                if (window.matchMedia("(max-width: 768px)").matches){
-                    mMvChange(spotfyArea);
-                }
                 headColor();
             }else if(workLink[c].classList.contains('hmg')){
                 hmgArea.style.display = 'block'
                 pgIntroOpen(hmgArea);
                 workCode(hmgArea);
-                if (window.matchMedia("(max-width: 768px)").matches){
-                    mMvChange(hmgArea);
-                }
                 headColor();
             }else if(workLink[c].classList.contains('repick')){
                 repickArea.style.display = 'block'
                 pgIntroOpen(repickArea);
                 workCode(repickArea);
-                if (window.matchMedia("(max-width: 768px)").matches){
-                    mMvChange(repickArea);
-                }
                 headColor();
             }
         })
@@ -426,6 +356,8 @@ function pageMoveAni(){
             pageMove.style.width = '135vw';
             pageMove.style.transition = '.5s ease'
             setTimeout(()=>{
+                 window.scrollTo(0, 0);
+                 horizonWrap.style.left = 0;
                 scWork.style.display = 'block';
                 workPg.style.display = 'none';
                 for(const wpw of workPgWrap){
@@ -493,9 +425,6 @@ function workPgScroll(){
 }
 //page out
 pageOut.addEventListener('click',()=>{
-    window.scrollTo(0, 0);
-    horizonWrap.style.left = 0;
-
     pageMoveAni();
     pgIntroOut();
     //header color reset
@@ -510,6 +439,7 @@ pageOut.addEventListener('click',()=>{
 })
 //page out - workpg intro reset
 function pgIntroOut(){
+
     for(const txtWrap of introTxtArea){
         txtWrap.classList.remove('on');
     }
@@ -525,14 +455,15 @@ function pgIntroOut(){
 }
 
 
-
 //workCode click
 function workCode(thisPg){
     codeIndex = thisPg.querySelectorAll('.code');
     for(let c = 0; c < codeIndex.length; c++){
         codeIndex[c].addEventListener('click',()=>{
-            let imgSrc = codeBox.querySelector('img');
-            imgSrc.setAttribute('src',codeSrc[workIndex][c]);
+
+           codeTxt.innerHTML = codeSrc[workIndex][c];
+           hljs.initHighlightingOnLoad();
+            // codeTxt.setAttribute('src',codeSrc[workIndex][c]);
             console.log('workNum :',workIndex,c);
 
             codeBox.style.display = 'block';
@@ -579,7 +510,21 @@ for(let b = 0; b < mInfoPlus.length; b++){
 }
 
 //모바일 비디오 변경
-// if (window.matchMedia("(max-width: 768px)").matches) { }
+function mMvPgChk(){
+    for( let w = 0; w < workPgWrap.length; w++){
+        if(workPgWrap[w].classList.contains('fritz')){
+                mMvChange(fritzArea);
+        }else if(workLink[c].classList.contains('tamburins')){
+                mMvChange(tanburinsArea);
+        }else if(workLink[c].classList.contains('spotfy')){
+                mMvChange(spotfyArea);
+        }else if(workLink[c].classList.contains('hmg')){
+                mMvChange(hmgArea);
+        }else if(workLink[c].classList.contains('repick')){
+                mMvChange(repickArea);
+        }
+}
+}
 function mMvChange(mAllImgBox){
     let mGallImgBox = mAllImgBox.querySelectorAll('.img_wrap');
     let mGallMv = mAllImgBox.querySelectorAll('.mv');
@@ -588,4 +533,9 @@ function mMvChange(mAllImgBox){
         mGallImgBox[m].innerHTML = ` <img src="${mImgSrc[workIndex][m]}" alt="" width="100%">`
     }
 }
+
+
+
+
+
 

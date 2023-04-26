@@ -7,13 +7,13 @@ const yhaLine = document.querySelector('.sc_main .intro .line i');
 const yhaPublis = document.querySelector('.sc_main .intro .publisher');
 const yhaLink = document.querySelector('.sc_main .link_work');
 
-if (window.matchMedia("screen and (min-width:767px)").matches){
- 
-}
 window.onload = function(){
     yhaAni()
     yhaIntroAni()
 }
+window.onresize = function(){
+    if (window.matchMedia("(min-width: 768px)").matches){document.location.reload();}
+};
 function yhaAni(){
     for(let i = 0; i < YhaWrap.length; i++){
         let yhaSpan = YhaWrap[i].querySelector('span');
@@ -26,9 +26,9 @@ function yhaAni(){
 }
 function yhaIntroAni(){
     setTimeout(()=>{
+        yhaPublis.classList.add('load');
         yhaLine.style.width = '100%';
         yhaLine.style.transition = '.2s ease'
-        yhaPublis.classList.add('load');
         setTimeout(()=>{
             for(let e = 0; e <yhaExplan.length; e++){
                 setTimeout(()=>{
@@ -39,8 +39,11 @@ function yhaIntroAni(){
         },300)
     },500)
 }
+if (window.matchMedia("(min-width: 768px)").matches){
+    yhaOverAni()
+    linkOver()
+}
 //yha mouseover
-yhaOverAni()
 function yhaOverAni(){
     mainYha.addEventListener('mouseover',()=>{
         for(let i = 0; i < YhaWrap.length; i++){
@@ -73,8 +76,8 @@ function yhaOverAni(){
     
     })
 }
-//main link mouseover
-if (matchMedia("screen and (min-width:767px)").matches) {
+//link mouseover
+function linkOver(){
     yhaLink.addEventListener('mouseover',()=>{
         let allWork = yhaLink.querySelector('.link_box');
         allWork.style.width = '170px';
@@ -87,13 +90,12 @@ if (matchMedia("screen and (min-width:767px)").matches) {
         allWork.style.opacity = '0'
         allWork.style.transition = '.5s ease' 
     })
-} 
+}
+//link click
 yhaLink.addEventListener('click',(e)=>{
     e.preventDefault();
     console.log('작업 페이지 이동');
     window.location.href = work;
 })
-
-/////////////////////////////////////////////////
 
 
