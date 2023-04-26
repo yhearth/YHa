@@ -50,7 +50,7 @@ let codeIndex = 0;
 
 window.onload = function(){
     reset();
-    workIntroAni();
+    // workIntroAni();
     
     workMouseAni()
     workClickAni();
@@ -87,6 +87,7 @@ function reset(){
     }
 }
 //sc_work onload Ani
+workIntroAni();
 function workIntroAni(){
     setTimeout(() => {
         workWebTxt.classList.add('on');
