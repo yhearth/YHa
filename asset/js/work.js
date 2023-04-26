@@ -34,7 +34,7 @@ const pageOut = document.querySelector('.page_out')
 const pageMove = document.querySelector('.page_move')
 
 const fritzArea = document.querySelector('.fritz_area')
-const tanburinsArea = document.querySelector('.tanburins_area')
+const tanburinsArea = document.querySelector('.tamburins_area')
 const spotfyArea = document.querySelector('.spotfy_area')
 const hmgArea = document.querySelector('.hmg_area')
 const repickArea = document.querySelector('.repick_area')
@@ -494,16 +494,16 @@ if(window.matchMedia("(max-width: 767px)").matches){mMvPgChk()}
 function mMvPgChk(){
     for( let w = 0; w < workPgWrap.length; w++){
         mWorkIndex = w;
-        console.log(mWorkIndex);
+        console.log( mWorkIndex);
         if(workPgWrap[w].classList.contains('fritz_area')){
                 mMvChange(fritzArea);
-        }else if(workLink[w].classList.contains('tamburins_area')){
-                mMvChange(tanburinsArea);          
-        }else if(workLink[w].classList.contains('spotfy_area')){
+        }else if(workPgWrap[w].classList.contains('tamburins_area')){
+                mMvChange(tanburinsArea);     
+        }else if(workPgWrap[w].classList.contains('spotfy_area')){
                 mMvChange(spotfyArea);
-        }else if(workLink[w].classList.contains('hmg_area')){
+        }else if(workPgWrap[w].classList.contains('hmg_area')){
                 mMvChange(hmgArea);
-        }else if(workLink[w].classList.contains('repick_area')){
+        }else if(workPgWrap[w].classList.contains('repick_area')){
                 mMvChange(repickArea);
         }
 
