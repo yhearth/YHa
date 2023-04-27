@@ -2,7 +2,7 @@ const fritzCodeSrc = [
     `
     function  mainVisualSlide(){
 
-        for(let i = 0; i < visualImg.length; i++){
+        for(let i = 0; i &lt; visualImg.length; i++){
             visualArray.push(visualImg[i]);
             visualImg[i].style.opacity = 0;
         }
@@ -129,7 +129,7 @@ const fritzCodeSrc = [
     }
     `,
     `
-     for(let c = 0; c < pdCheckLi.length; c++){
+     for(let c = 0; c &lt; pdCheckLi.length; c++){
 
         pdFillIdx.innerText = pdItemIdx;//상품 갯수 초기화
     
@@ -143,7 +143,7 @@ const fritzCodeSrc = [
                 //체크박스
                 checkArr.push(chxName);//선택된 라벨 배열
                 //리스트
-                for(let i = 0; i < pdItemFig.length; i++){
+                for(let i = 0; i &lt; pdItemFig.length; i++){
                     let itemLi = pdItemFig[i].parentElement.parentElement;
                     let itemSpan = pdItemFig[i].children; 
                     let itemTit = itemSpan[0].className;
@@ -178,7 +178,7 @@ const fritzCodeSrc = [
     
                 
                 //체크박스 
-                for(let x = 0; x < checkArr.length; x++){
+                for(let x = 0; x &lt; checkArr.length; x++){
                     if(checkArr[x] == chxName ){
                         checkArr.splice(x,1);
                         x--;   
@@ -187,7 +187,7 @@ const fritzCodeSrc = [
                 console.log(checkArr);
     
                 //리스트
-                for(let i = 0; i < pdItemFig.length; i++){
+                for(let i = 0; i &lt; pdItemFig.length; i++){
                     let itemLi = pdItemFig[i].parentElement.parentElement;
                     let itemSpan = pdItemFig[i].children; 
                     let itemTit = itemSpan[0].className;
@@ -230,13 +230,13 @@ const fritzCodeSrc = [
     `
     function shellOptionClick(){
 
-        for(let s = 0; s<shellBox.length; s++){
+        for(let s = 0; s &lt; shellBox.length; s++){
             shellBox[s].addEventListener('click',()=>{
                 shellIdx = s;
                 let shellCus = shellBox[s].querySelector('span');
                 shellName = shellCus.textContent;//커스텀 이름 변수
     
-                for(let x = 0; x<shellBox.length; x++){
+                for(let x = 0; x &lt; shellBox.length; x++){
                     let shellImg = shellBox[x].querySelector('img');
                     shellImg.style.border=0;
                     shellImg.style.boxShadow = '#000 0px 0px 0px ';
@@ -276,7 +276,7 @@ const fritzCodeSrc = [
         function  listDelate(){
             delateBtn = document.querySelectorAll('.delate_box');
         
-            for(let d = 0; d < delateBtn.length; d++){
+            for(let d = 0; d &lt; delateBtn.length; d++){
                 delateBtn[d].addEventListener('click',(e)=>{
         
                     let removeItem = e.target.parentElement;
@@ -296,7 +296,7 @@ const fritzCodeSrc = [
     `
     window.addEventListener('scroll',()=> { 
     
-        for(let i = 0; i <trigerLiving.length; i++){
+        for(let i = 0; i &lt; trigerLiving.length; i++){
            
             let scrollNow = document.documentElement.scrollTop;
             let winHeight = window.innerHeight;
@@ -305,8 +305,8 @@ const fritzCodeSrc = [
             let bgProPer = 0;
             bgProPer = (scrollNow - trigerTop) / winHeight * 10;
             let trigerItems =  trigerLiving[i].querySelectorAll('li')
-                if( 15 <= bgProPer){
-                    for(let v =0; v <trigerItems.length; v++){
+                if( 15 &lt; = bgProPer){
+                    for(let v =0; v &lt; trigerItems.length; v++){
                         setTimeout(()=>{
                             trigerItems[v].style.opacity = 1;
                             trigerItems[v].style.visibility = 'visible'
@@ -332,7 +332,7 @@ const fritzCodeSrc = [
     makeClone();
     //이미지 클론
     function makeClone(){
-        for(let i = 0; i < slideIndex; i++){
+        for(let i = 0; i &lt; slideIndex; i++){
             let  cloneSlide = aboutFhLi[i].cloneNode(true);
             cloneSlide.classList.add('clone')
             aboutFhWrap.appendChild(cloneSlide);
@@ -421,7 +421,7 @@ const tamCodeSrc = [
             el: ".swiper-pagination",
             clickable: true,
             renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + '<img src = "./asset/img/cate/cate_icon_' +(index+1) + '.png" alt="">'+"</span>";
+                return '&lt; span class="' + className + '">' + '&lt;img src = "./asset/img/cate/cate_icon_' +(index+1) + '.png" alt="">'+"&lt;/span>";
             }
             ,
             },
@@ -504,11 +504,11 @@ const repickCodeSrc = [
         const newValueAni = ()=>{
             newValuePercent = (scrollY - newValueVt) / winHeight * 100;
 
-            if( 260 <= newValuePercent){
+            if( 260 &lt;= newValuePercent){
                 $newValue.classList.add('active'); 
             }
             if(matchMedia("screen and (max-width : 1024px)").matches){
-                if( 220 <= newValuePercent){
+                if( 220 &lt; = newValuePercent){
                     $newValue.classList.add('active');     
                 }
             }  
