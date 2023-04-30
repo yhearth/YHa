@@ -852,10 +852,10 @@ main {
 }
 .sc_work .horison_wrap {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 2492px;
-  height: 100vh;
+  height: calc(100vh - 80px);
   display: flex;
 }
 @media (max-width: 1440px) {
@@ -872,6 +872,9 @@ main {
   .sc_work .horison_wrap {
     width: 1100px;
     align-items: end;
+    top: 0;
+    left: 0;
+    height: 100vh;
   }
 }
 .sc_work .horison_wrap .work_web {
@@ -1150,11 +1153,10 @@ main {
   }
 }
 .sc_work .horison_wrap .work_link .work_group .img_wrap img {
-  display: block;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 101%;
   height: 0%;
   opacity: 0;
   -o-object-fit: cover;

@@ -11,13 +11,14 @@ main{
     @include tablet{ height:calc((260px * 5) + 390px);}
     @include mobile{ height:calc(220px * 5);}
     .horison_wrap{
-        position: fixed;top: 0;left: 0;
-        width:calc((384px * 5) + 572px);height: 100vh;
+        position: fixed;bottom: 0;left: 0;
+        width:calc((384px * 5) + 572px);height:calc(100vh - 80px);;
         display: flex;
         @include notebook{width:calc((288px * 5) + 432px);}
         @include tablet{width:calc((260px * 5) + 390px);}
         @include mobile{
             width:calc(220px * 5);align-items: end;
+            top: 0;left: 0;height: 100vh;
         }
         .work_web{
             position: relative;
@@ -133,10 +134,9 @@ main{
                     @include tablet{height: 360px;}
                     @include mobile{height: 304px;}
                     img{
-                        display: block;
                         position: absolute;
                         top: 0;left: 0;
-                        width: 100%;
+                        width: 101%;
                         height:0%;//100%
                         opacity: 0;
                         object-fit:cover;

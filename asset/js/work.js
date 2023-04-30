@@ -48,37 +48,14 @@ const codeXBtn = document.querySelector('.work_page .x_btn')
 let workIndex = 0;
 let codeIndex = 0;
 
-// window.onload = function(){ }
 window.onresize = function(){
     if (window.matchMedia("(min-width: 768px)").matches){
-        document.location.reload();
         window.scrollTo(0, 0);
         horizonWrap.style.left = 0;
     }else if(window.matchMedia("(max-width: 767px)").matches){
         mMvPgChk()
     }
 };
-//reset
-// function reset(){
-    
-//     onCursor = false
-//     isScroll = false  
-
-//     workIndex = 0;
-//     codeIndex = 0;
-
-//     for(let i = 0; i < workAllImg.length; i++){
-//         workAllImg[i].style.height ='0';
-//         workAllImg[i].style.opacity ='0';
-//     }
-//     for(let t = 0; t < workTxt.length; t++){
-//         workTxt[t].style.opacity ='0';
-//         workTxt[t].style.visibility = 'hidden'
-//         workNum[t].style.opacity ='0';
-//         workNum[t].style.visibility = 'hidden'
-//     }
-// }
-
 //sc_work onload Ani
 workIntroAni();
 function workIntroAni(){
@@ -92,29 +69,20 @@ function workIntroAni(){
                     workImgG[i].style.height ='100%';
                     workImgG[i].style.opacity ='1';
                     workImgG[i].style.transition = '1s ease'
-                },i*300)
+                },i*200)
             }
             for(let i = 0; i < workTxt.length; i++){
                 setTimeout(()=>{
                     workTxt[i].style.opacity ='1';
                     workTxt[i].style.visibility = 'visible'
                     workTxt[i].style.transition = '1s ease'
+                  
                 },i*300)
             }
-
             workMouseAni();
         },200)
     },100);
 }
-//scroll
-window.addEventListener('scroll',()=>{
-    secGet = workCt.getBoundingClientRect();
-    horGet = horizonWrap.getBoundingClientRect();
-    v = window.scrollY;
-    translateX = (secGet.height - secGet.width) * ((v / (secGet.height - horGet.height)) * -1);
-    horizonWrap.style.left = `${translateX}px`;
-    console.log(translateX);
-}) 
 //cursor
 window.addEventListener('mousemove',(e)=>{
     e.preventDefault();
@@ -168,28 +136,32 @@ function ursorAni(){
         },200)
     }
 }
+//scroll
+function handleScrollEvent(){
+    secGet = workCt.getBoundingClientRect();
+    horGet = horizonWrap.getBoundingClientRect();
+    v = window.scrollY;
+    translateX = (secGet.height - secGet.width) * ((v / (secGet.height - horGet.height)) * -1);
+    horizonWrap.style.left = `${translateX}px`;
+}
+window.addEventListener('scroll', handleScrollEvent);
+
 // work mouseover
-workMouseAni()
 function workMouseAni(){
     for( let l = 0; l <workLink.length; l++){
         let numEnter = workLink[l].querySelector('.num_wrap span');
         let imgWrap = workLink[l].querySelector('.img_wrap');
         let imgGray = workLink[l].querySelector('.img_wrap .workImgG');
-        let imgColor = workLink[l].querySelector('.img_wrap .workImgC');
-    
-        imgWrap.addEventListener('mouseover',()=>{
-            // console.log('마우스 들어감')
-            //cursor
+        let imgColor = workLink[l].querySelector('.img_wrap .workImgC');  
+        imgWrap.addEventListener('mouseenter',()=>{   
             isScroll = true;
             ursorAni()
-            //num
             setTimeout(()=>{
                 numEnter.style.opacity = '1';
                 numEnter.style.visibility = 'visible';
                 numEnter.style.transform = `rotate(0deg)`;
                 numEnter.style.transition= `.5s ease`;
             })
-            //img
             setTimeout(()=>{
                 imgColor.style.opacity = 1;
                 imgColor.style.transition = '.5s ease'
@@ -200,19 +172,15 @@ function workMouseAni(){
     
             })   
         })
-        imgWrap.addEventListener('mouseout',()=>{
-            // console.log('마우스 나감')
-            //cursor
+        imgWrap.addEventListener('mouseleave',()=>{
             isScroll = false;
             ursorAni()
-            //num
             setTimeout(()=>{
                 numEnter.style.opacity = '0';
                 numEnter.style.visibility = 'hidden';
                 numEnter.style.transform = `rotate(90deg)`;
                 numEnter.style.transition= `.5s ease`;
             })
-            //img
             setTimeout(()=>{
                 imgColor.style.transform =` scale(1)`;
                 imgGray.style.transform =` scale(1)`;
@@ -224,42 +192,42 @@ function workMouseAni(){
 }
 //work mousedown
 let isMouseDown = false;
-for( let d = 0; d < workLink.length; d++){
+function linkDown(){
+    for( let d = 0; d < workLink.length; d++){
 
-    const linkArr = Array.from(workLink[d].parentNode.children)//모든아이템 변환
-    const linkDown = linkArr.indexOf(workLink[d])//배열중 마우스다운한 item 순번
-    const prevItem = linkArr.slice(0,linkDown);//down 제외 이전 모든 형제들
-    const nextItem = linkArr.slice(linkDown + 1);//down 제외 다음 모든 형제들
-    var mouseDownTime ;
-    workLink[d].addEventListener('mousedown',(e)=>{
-        e.stopPropagation();
-        if(!isMouseDown){
-            //console.log('마우스 다운');
-            prevItem.forEach(siblingItem => {
-                siblingItem.classList.add('mouseDown')
-            });
-            nextItem.forEach(siblingItem => {
-                siblingItem.classList.add('mouseDown')
-            }); 
-            isMouseDown = true;
-        } 
-    })
-    workLink[d].addEventListener('mouseup',(e)=>{
-        // e.stopPropagation();
-        if(isMouseDown){
-           // console.log('마우스 업');
-            prevItem.forEach(siblingItem => {
-                siblingItem.classList.remove('mouseDown')
-            });
-            nextItem.forEach(siblingItem => {
-                siblingItem.classList.remove('mouseDown')
-            }); 
-            isMouseDown = false;
-        }
-        pageMoveAni();
-    })
-    
+        const linkArr = Array.from(workLink[d].parentNode.children)
+        const linkDown = linkArr.indexOf(workLink[d])
+        const prevItem = linkArr.slice(0,linkDown);
+        const nextItem = linkArr.slice(linkDown + 1);
+        var mouseDownTime ;
+        workLink[d].addEventListener('mousedown',(e)=>{
+            e.stopPropagation();
+            if(!isMouseDown){
+                prevItem.forEach(siblingItem => {
+                    siblingItem.classList.add('mouseDown')
+                });
+                nextItem.forEach(siblingItem => {
+                    siblingItem.classList.add('mouseDown')
+                }); 
+                isMouseDown = true;
+            } 
+        })
+        workLink[d].addEventListener('mouseup',(e)=>{
+            if(isMouseDown){
+                prevItem.forEach(siblingItem => {
+                    siblingItem.classList.remove('mouseDown')
+                });
+                nextItem.forEach(siblingItem => {
+                    siblingItem.classList.remove('mouseDown')
+                }); 
+                isMouseDown = false;
+            }
+            pageMoveAni();
+        })
+        
+    }
 }
+
 //work click
 workClickAni();
 function workClickAni(){  
