@@ -339,6 +339,7 @@ main{
                     display: flex;justify-content: space-between;
                     @include mobile{
                         flex-direction: column;
+                        
                     }
                     .row_box{width:calc(50% - 1vw); @include mobile{width: 100%;margin:40px 0;}}
                 }
@@ -403,10 +404,10 @@ main{
      }
      .fritz_area{
         .work_intro{
-            background: url(../img/Fritze-intro.jpg)no-repeat center center / cover;
+            background: url(../img/Fritze-intro.webp)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/mobile/fritz_intro_m.jpg)no-repeat center center / cover;}
+            @include mobile{background: url(../img/Fritze-intro.webp)no-repeat center center / cover;}
         }
         .info_group{
             .desc{
@@ -419,10 +420,10 @@ main{
      }
      .tamburins_area{
         .work_intro{
-            background: url(../img/tamburins_intro.jpg)no-repeat center center / cover;
+            background: url(../img/tamburins_intro.webp)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/mobile/tamburins_intro_m.jpg)no-repeat center center / cover;}
+            @include mobile{background: url(../img/tamburins_intro.webp)no-repeat center center / cover;}
             .txt_wrap{
                 color:#fff;
                 .skill li{color:#fff}
@@ -439,10 +440,10 @@ main{
     }
     .spotfy_area{
         .work_intro{
-            background: url(../img/spotfy_intro.jpg)no-repeat center center / cover;
+            background: url(../img/spotfy_intro.webp)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/mobile/spotfy_intro_m.jpg)no-repeat center center / cover;}
+            @include mobile{background: url(../img/spotfy_intro.webp)no-repeat center center / cover;}
             .txt_wrap{
                 color:#fff;
                 .skill li{color:#fff}
@@ -469,10 +470,10 @@ main{
     }
     .hmg_area{
         .work_intro{
-            background: url(../img/hmg_intro.jpg)no-repeat center center / cover;
+            background: url(../img/hmg_intro.webp)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/mobile/hmg_intro_m.jpg)no-repeat center center / cover;}
+            @include mobile{background: url(../img/hmg_intro.webp)no-repeat center center / cover;}
             .txt_wrap{
                 color:#fff;
                 .skill li{color:#fff}
@@ -497,10 +498,10 @@ main{
     }
     .repick_area{
         .work_intro{
-            background: url(../img/repick_intro.jpg)no-repeat center center / cover;
+            background: url(../img/repick_intro.webp)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/mobile/repick_intro_m.jpg)no-repeat center center / cover;}
+            @include mobile{background: url(../img/repick_intro.webp)no-repeat center center / cover;}
             .txt_wrap{
                 color:#fff;
                 .skill li{color:#fff}
