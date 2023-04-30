@@ -293,94 +293,6 @@ const fritzCodeSrc = [
             }
         }
     `,
-    `
-    window.addEventListener('scroll',()=> { 
-    
-        for(let i = 0; i &lt; trigerLiving.length; i++){
-           
-            let scrollNow = document.documentElement.scrollTop;
-            let winHeight = window.innerHeight;
-            let trigerBottom = trigerLiving[i].offsetTop;
-            let trigerTop = trigerBottom - winHeight;
-            let bgProPer = 0;
-            bgProPer = (scrollNow - trigerTop) / winHeight * 10;
-            let trigerItems =  trigerLiving[i].querySelectorAll('li')
-                if( 15 &lt; = bgProPer){
-                    for(let v =0; v &lt; trigerItems.length; v++){
-                        setTimeout(()=>{
-                            trigerItems[v].style.opacity = 1;
-                            trigerItems[v].style.visibility = 'visible'
-                            trigerItems[v].style.transform = 'translateY(0%)'
-                            trigerItems[v].style.transition = '.8s ease'
-                        },v*300);   
-                    }
-                }
-        }
-    })
-    `,
-    `
-    window.addEventListener('mousemove',(e)= &lt;{
-        let mouseX = e.clientX + 50 + 'px';
-        let mouseY = e.clientY - 150 + 'px';
-    
-        cursor.style.left = mouseX
-        cursor.style.top = mouseY
-    })
-
-    `,
-    `
-    makeClone();
-    //이미지 클론
-    function makeClone(){
-        for(let i = 0; i &lt; slideIndex; i++){
-            let  cloneSlide = aboutFhLi[i].cloneNode(true);
-            cloneSlide.classList.add('clone')
-            aboutFhWrap.appendChild(cloneSlide);
-        }
-        for(let i = slideIndex -1; i >= 0; i--){
-            let cloneSlide = aboutFhLi[i].cloneNode(true);
-            cloneSlide.classList.add('clone')
-            aboutFhWrap.prepend(cloneSlide)
-        }
-        updateWidth()
-        setIntialPos();
-        setTimeout(()=>{
-            aboutFhWrap.classList.add('ani');
-        },100)
-
-    }
-    //이미지 가로값 업데이트
-    function updateWidth(){
-        let currSlideLi = document.querySelectorAll('.slide_wrap li');
-        let newSlideIndex = currSlideLi.length;
-
-        let newWidth = ( slideWidth + slideMargin ) * newSlideIndex - slideMargin + 'vw';
-        aboutFhWrap.style.width = newWidth;
-
-    }
-    //보여지는 이미지 위치 변경
-    function setIntialPos(){
-        let resetPos = -(slideWidth + slideMargin ) * slideIndex;
-        aboutFhWrap.style.transform = 'translateX('+ resetPos +'vw)';
-    }
-    aboutFhNext.addEventListener('click',function(){ moveSlide(currIndex + 1);})
-    aboutFhPrev.addEventListener('click',function(){moveSlide(currIndex - 1);})
-    //이미지 슬라이드
-    function moveSlide(num){
-    aboutFhWrap.style.left = - num * (slideWidth + slideMargin ) + 'vw';
-    currIndex = num;
-    if(currIndex == slideIndex || currIndex == -slideIndex){
-        setTimeout(()=>{
-            aboutFhWrap.classList.remove('ani');
-            aboutFhWrap.style.left = 0;
-            currIndex = 0;
-        },500)
-        setTimeout(()=>{
-            aboutFhWrap.classList.add('ani');
-        },505)
-    }
-    }
-    `,
 ]
 const tamCodeSrc = [
     `
@@ -470,62 +382,8 @@ const hmgCodeSrc = [
             },
         });
     `,
-    `
-        if(matchMedia("screen and (max-width : 767px)").matches){
-            $('.slide_01 img').attr('src','asset/img/main-m-banner01.jpeg');
-            $('.slide_02 img').attr('src','asset/img/main-m-banner02.jpeg');
-            $('.slide_03 img').attr('src','asset/img/main-m-banner03.jpeg');
-            $('.slide_04 img').attr('src','asset/img/main-m-banner04.jpeg');
-            $('.visual-control img').attr('src','asset/img/ic-m-sprite.png');
-        //    location.reload();
-
-        }else if(matchMedia("screen and (max-width : 1024px)").matches){
-        $('.visual-control img').attr('src','asset/img/ic-m-sprite.png');
-        }
-        $(document).ready(function(){
-            $(window).resize(function(){
-                location.reload();
-            })
-        })
-    `,
 ]
 const repickCodeSrc = [
-    `
-    const $window = $(window);
-        const body = $('body');
-        let wonsize = {width:null,height:null}
-        let scrollY = null;
-        let winHeight = window.innerHeight;
-
-        const $newValue = document.querySelector('.newValue');
-        let newValueTop = $newValue.offsetTop;
-        let newValueVt = newValueTop - winHeight;
-        let newValuePercent = 0;
-        const newValueAni = ()=>{
-            newValuePercent = (scrollY - newValueVt) / winHeight * 100;
-
-            if( 260 &lt;= newValuePercent){
-                $newValue.classList.add('active'); 
-            }
-            if(matchMedia("screen and (max-width : 1024px)").matches){
-                if( 220 &lt; = newValuePercent){
-                    $newValue.classList.add('active');     
-                }
-            }  
-            
-        }
-    `,
-    `
-    let icIndex = 1;
-         const randomIconFunc =()=>{
-            icrandom.attr('src',img/meunicon0{icIndex}.svg)
-            icIndex++;
-            if(icIndex == 13){
-                icIndex = 1;
-            }
-         }
-         window.onload =  setInterval(randomIconFunc,800);
-    `,
     `
         const slideRight = function(e){
             x += 100;
@@ -557,12 +415,8 @@ const mfritzSrc = [
     './asset/img/mobile/fritz_product.gif',
     './asset/img/mobile/fritz_custom.gif',
     './asset/img/mobile/fritz_wishAdd.gif',
-    './asset/img/mobile/fritz_living.gif',
-    './asset/img/mobile/fritz_designer.gif',
-    './asset/img/mobile/fritz_history.gif'
 ]
 const mtamSrc = [
-    './asset/img/mobile/tamburins_main.gif',
     './asset/img/mobile/tamburins_gsap.gif',
     './asset/img/mobile/tamburins_swiper.gif'
 ]
@@ -571,11 +425,8 @@ const mspotiSrc = [
 ]
 const mhmgSrc = [
     './asset/img/mobile/hmg_swiper.gif',
-    './asset/img/mobile/hmg_m_code.gif'
 ]
 const mrepickSrc = [
-    './asset/img/mobile/repick_scroll.gif',
-    './asset/img/mobile/repick_click.gif',
     './asset/img/mobile/repick_slide.gif'
 ]
 const mImgSrc = [mfritzSrc ,mtamSrc ,mspotiSrc,mhmgSrc ,mrepickSrc]
