@@ -833,7 +833,7 @@ main {
 .sc_work {
   position: relative;
   width: 100%;
-  height: 2492px;
+  height: calc(100vw + 572px);
 }
 @media (max-width: 1440px) {
   .sc_work {
@@ -854,8 +854,8 @@ main {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 2492px;
-  height: calc(100vh - 80px);
+  width: calc(100vw + 572px);
+  height: 100%;
   display: flex;
 }
 @media (max-width: 1440px) {
@@ -874,7 +874,6 @@ main {
     align-items: end;
     top: 0;
     left: 0;
-    height: 100vh;
   }
 }
 .sc_work .horison_wrap .work_web {
@@ -1001,7 +1000,7 @@ main {
 }
 .sc_work .horison_wrap .work_link {
   position: relative;
-  width: 384px;
+  width: 20vw;
   height: 100%;
   display: flex;
   align-items: end;
@@ -1032,32 +1031,10 @@ main {
   flex-direction: column;
   justify-content: end;
 }
-.sc_work .horison_wrap .work_link .work_group .num_wrap {
-  padding: 0 0.5vw;
-  box-sizing: border-box;
-  margin-bottom: 30px;
-}
-@media (max-width: 767px) {
-  .sc_work .horison_wrap .work_link .work_group .num_wrap {
-    display: none;
-  }
-}
-.sc_work .horison_wrap .work_link .work_group .num_wrap span {
-  font-family: "Oswald", sans-serif;
-  font-size: 2rem;
-  letter-spacing: -1px;
-  color: var(--pointColor);
-  display: inline-block;
-  transform-origin: bottom;
-  opacity: 0;
-  visibility: hidden;
-  font-weight: 500;
-  transform: rotate(90deg);
-}
 .sc_work .horison_wrap .work_link .work_group .txt_wrap {
   position: relative;
   width: 100%;
-  min-height: 240px;
+  min-height: 300px;
   padding: 0px 0.5vw;
   box-sizing: border-box;
   opacity: 0;
@@ -1156,7 +1133,7 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  width: 101%;
+  width: 100%;
   height: 0%;
   opacity: 0;
   -o-object-fit: cover;

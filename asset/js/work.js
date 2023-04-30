@@ -149,19 +149,12 @@ window.addEventListener('scroll', handleScrollEvent);
 // work mouseover
 function workMouseAni(){
     for( let l = 0; l <workLink.length; l++){
-        let numEnter = workLink[l].querySelector('.num_wrap span');
         let imgWrap = workLink[l].querySelector('.img_wrap');
         let imgGray = workLink[l].querySelector('.img_wrap .workImgG');
         let imgColor = workLink[l].querySelector('.img_wrap .workImgC');  
         imgWrap.addEventListener('mouseenter',()=>{   
             isScroll = true;
             ursorAni()
-            setTimeout(()=>{
-                numEnter.style.opacity = '1';
-                numEnter.style.visibility = 'visible';
-                numEnter.style.transform = `rotate(0deg)`;
-                numEnter.style.transition= `.5s ease`;
-            })
             setTimeout(()=>{
                 imgColor.style.opacity = 1;
                 imgColor.style.transition = '.5s ease'
@@ -175,12 +168,6 @@ function workMouseAni(){
         imgWrap.addEventListener('mouseleave',()=>{
             isScroll = false;
             ursorAni()
-            setTimeout(()=>{
-                numEnter.style.opacity = '0';
-                numEnter.style.visibility = 'hidden';
-                numEnter.style.transform = `rotate(90deg)`;
-                numEnter.style.transition= `.5s ease`;
-            })
             setTimeout(()=>{
                 imgColor.style.transform =` scale(1)`;
                 imgGray.style.transform =` scale(1)`;
