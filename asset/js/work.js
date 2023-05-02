@@ -61,7 +61,7 @@ window.onresize = function(){
 };
 
 //main load Ani
-window.onload = function(){ mainLoad()}
+mainLoad();
 function mainLoad(){
     for(let n = 0; n < nameLi.length; n++){
         setTimeout(()=>{

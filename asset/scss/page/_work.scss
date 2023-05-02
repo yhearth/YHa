@@ -140,7 +140,6 @@ main{
                     @include mobile{min-height: 200px;padding: 0 6.25vw;;}
                     .title{
                         display: flex;align-items: center;justify-content: space-between;
-                        color:#454545;
                         @include mobile{
                             flex-direction: column;align-items: start;line-height: 1.6;
                         }
@@ -148,7 +147,7 @@ main{
                             @include notebook{font-size: 1.2rem;}
                             @include mobile{font-size: 1.5rem;}
                         }
-                        .sub{font-size:1rem;font-weight:400;color:#454545;
+                        .sub{font-size:1rem;font-weight:400;
                             @include notebook{font-size: .8rem;}
                             @include mobile{font-size:1rem;}
                         }
@@ -156,7 +155,7 @@ main{
                     .skill{
                         margin:20px 0;
                         li{
-                            margin:1vw 0;font-size:1rem;font-weight:300;color:#888;
+                            margin:1vw 0;font-size:1rem;font-weight:400;letter-spacing: .5px;color:#454545;
                             @include notebook{font-size: 0.5rem;margin: .5rem 0;}
                         }
                     }
@@ -288,11 +287,24 @@ main{
                         }
                         .link{
                             display: flex;align-items: center;
-                            font-size: .9rem;color:#008cff;font-weight:500;
-                            line-height: 1.8;
+                            font-size: .9rem;font-weight:500;line-height: 1.5;
+                            margin:5px 0;
                             @include tablet{font-size: 0.8rem;}
                             @include mobile{font-size: 1rem;}
-                            a{display: block;}
+                            a{
+                                position: relative;
+                                display: block;
+                                
+                                &:hover{&::after{width: 100%;}}
+                                &::after{
+                                    content: '';
+                                    position: absolute;
+                                    width: 0%;height:2px;
+                                    bottom: 0;left: 0;
+                                    background-color: #000;
+                                    transition: all .5s ease;
+                                }
+                            }
                             img{width:18px;object-fit: contain;margin-right:12px;}
                         }
                     }
@@ -397,8 +409,7 @@ main{
                         position: relative;width: 100%;margin-bottom: 2vw;
                         display: flex;align-items: center;justify-content: space-between;
                         strong{
-                            font-size: 1.5rem;font-weight:600;
-                            color:var(--pointColor);display: block;
+                            font-size: 1.5rem;font-weight:600;display: block;
                             @include tablet{font-size: 1.2rem;}
                             @include mobile{font-size: 1rem;}
                         }
