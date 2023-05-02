@@ -22,6 +22,10 @@ let v;
 let translateX;
 let scrollIng = false;
 
+// const mainWrap= document.querySelector('.sc_work .main_web')
+const mainWrap= document.querySelector('.sc_work .main_web')
+const nameWrap= mainWrap.querySelector('.sc_work .main_web .title .name')
+const nameLi= nameWrap.querySelectorAll('.sc_work .main_web .title .name span')
 const workWebTxt= document.querySelector('.sc_work .work_web .txt_wrap')
 const workLink = document.querySelectorAll('.sc_work .work_link')
 const workAllImg = document.querySelectorAll('.sc_work .img_wrap img')
@@ -50,14 +54,112 @@ let codeIndex = 0;
 
 window.onresize = function(){
     if (window.matchMedia("(min-width: 768px)").matches){
-        window.scrollTo(0, 0);
-        horizonWrap.style.left = 0;
-    }else if(window.matchMedia("(max-width: 767px)").matches){
-        mMvPgChk()
-    }
+        location.reload()
+        // window.scrollTo(0, 0);
+        // horizonWrap.style.left = 0;
+    }else if(window.matchMedia("(max-width: 767px)").matches){mMvPgChk()}
 };
+
+//main load Ani
+window.onload = function(){ mainLoad()}
+function mainLoad(){
+    for(let n = 0; n < nameLi.length; n++){
+        setTimeout(()=>{
+            nameLi[n].style.bottom = 0;
+            nameLi[n].style.transition =".5s ease"
+        },n*80) 
+    }
+}
+if(window.matchMedia("(min-width: 767px)").matches){nameOver()}
+function nameOver(){
+    nameWrap.addEventListener('mouseover',()=>{
+        onCursor = true;
+        cursorAni()
+        mainWrap.classList.add('dark');
+        nameWrap.classList.add('dark');
+        headChange = false
+        headColor()
+    })
+    nameWrap.addEventListener('mouseout',()=>{
+        onCursor = false;
+        cursorAni()
+        mainWrap.classList.remove('dark');
+        nameWrap.classList.remove('dark');
+        headChange = true;
+        headColor()
+    })
+}
+
+
+//cursor
+window.addEventListener('mousemove',(e)=>{
+    e.preventDefault();
+    let mouseX = e.clientX - 100 + 'px';
+    let mouseY = e.clientY - 100 + 'px';
+    cursor.style.left = mouseX;
+    cursor.style.top = mouseY;
+    cursorAni()
+})
+//cursor is
+let onCursor = false
+function cursorAni(){
+    if(!onCursor){
+        setTimeout(()=>{
+            cursorBox.style.transform = `scale(1)`;
+            cursorBox.style.transition = '.5s ease';
+        },200)
+    }else if(onCursor){
+        setTimeout(()=>{
+            cursorBox.style.transform = `scale(0)`;
+            cursorBox.style.transition = '.5s ease';
+        },200)
+    }
+}
+//cursor scroll/click 
+let isScroll = false
+function ursorAni(){
+    if(!isScroll){
+        setTimeout(()=>{
+            cursorBox.style.backgroundColor = '#fff';
+            cursorBox.style.borderColor = '#222';
+            cursorBox.style.color = '#222';
+            cursorTxt.innerHTML = 'SCROLL'
+        },200)
+       
+    }else if(isScroll){
+        setTimeout(()=>{
+            cursorBox.style.backgroundColor = '#222';
+            cursorBox.style.borderColor = 'none';
+            cursorBox.style.color = '#f8ecff';
+            cursorTxt.innerHTML = 'CLICK'
+        },200)
+    }
+}
+
+
+
+
+
+//scroll
+function handleScrollEvent(){
+    secGet = workCt.getBoundingClientRect();
+    horGet = horizonWrap.getBoundingClientRect();
+    v = window.scrollY;
+    translateX = (secGet.height - secGet.width) * ((v / (secGet.height - horGet.height)) * -1);
+    if (window.matchMedia("(min-width: 1920px)").matches){
+        if(v > 1800){workIntroAni();}
+    }else if(window.matchMedia("(min-width: 1440px)").matches){
+        if(v > 1200){workIntroAni();}
+    }else if(window.matchMedia("(min-width: 1024px)").matches){
+        if(v > 600){workIntroAni();}
+    }else if(window.matchMedia("(min-width: 767px)").matches){
+        if(v > 380){workIntroAni();}
+    }else{ if(v > 0){workIntroAni();}}
+   
+    horizonWrap.style.left = `${translateX}px`;
+}
+window.addEventListener('scroll', handleScrollEvent);
 //sc_work onload Ani
-workIntroAni();
 function workIntroAni(){
     setTimeout(() => {
         workWebTxt.classList.add('on');
@@ -83,68 +185,8 @@ function workIntroAni(){
         },200)
     },100);
 }
-//cursor
-window.addEventListener('mousemove',(e)=>{
-    e.preventDefault();
-    let mouseX = e.clientX - 90 + 'px';
-    let mouseY = e.clientY - 90 + 'px';
 
-    cursor.style.left = mouseX;
-    cursor.style.top = mouseY;
-    cursorAni()
-})
-//cursor is
-let onCursor = false
-function cursorAni(){
-    if(!onCursor){
-        setTimeout(()=>{
-            cursorBox.style.display = 'block';
-            setTimeout(()=>{
-                cursorBox.style.opacity = '1';
-                cursorBox.style.width = '120px';
-                cursorBox.style.height = '120px';
-                cursorBox.style.transition = '.5s ease';
-            },500)
-        })
-    }else if(onCursor){
-        cursorBox.style.opacity = '0';
-        cursorBox.style.width = '0';
-        cursorBox.style.height = '0';
-        cursorBox.style.transition = '.5s ease';
-        setTimeout(()=>{
-            cursorBox.style.display = 'none';
-        },500)
-    }
-}
-//cursor scroll/click 
-let isScroll = false
-function ursorAni(){
-    if(!isScroll){
-        setTimeout(()=>{
-            cursorBox.style.backgroundColor = '#fff';
-            cursorBox.style.borderColor = '#454545';
-            cursorBox.style.color = '#454545';
-            cursorTxt.innerHTML = 'SCROLL'
-        },200)
-       
-    }else if(isScroll){
-        setTimeout(()=>{
-            cursorBox.style.backgroundColor = '#333';
-            cursorBox.style.borderColor = 'none';
-            cursorBox.style.color = '#f8ecff';
-            cursorTxt.innerHTML = 'CLICK'
-        },200)
-    }
-}
-//scroll
-function handleScrollEvent(){
-    secGet = workCt.getBoundingClientRect();
-    horGet = horizonWrap.getBoundingClientRect();
-    v = window.scrollY;
-    translateX = (secGet.height - secGet.width) * ((v / (secGet.height - horGet.height)) * -1);
-    horizonWrap.style.left = `${translateX}px`;
-}
-window.addEventListener('scroll', handleScrollEvent);
+
 
 // work mouseover
 function workMouseAni(){
@@ -214,7 +256,6 @@ function linkDown(){
         
     }
 }
-
 //work click
 workClickAni();
 function workClickAni(){  
@@ -233,7 +274,7 @@ function workClickAni(){
             //header scroll 
             workPgScroll();
 
-            console.log('클릭')
+
             if(workLink[c].classList.contains('fritz')){
                 fritzArea.style.display = 'block'
                 pgIntroOpen(fritzArea);
@@ -242,26 +283,26 @@ function workClickAni(){
                 tanburinsArea.style.display = 'block'
                 pgIntroOpen(tanburinsArea);
                 workCode(tanburinsArea);
-                headColor();
             }else if(workLink[c].classList.contains('spotfy')){
                 spotfyArea.style.display = 'block'
                 pgIntroOpen(spotfyArea);
                 workCode(spotfyArea);
-                headColor();
             }else if(workLink[c].classList.contains('hmg')){
                 hmgArea.style.display = 'block'
                 pgIntroOpen(hmgArea);
                 workCode(hmgArea);
-                headColor();
             }else if(workLink[c].classList.contains('repick')){
                 repickArea.style.display = 'block'
                 pgIntroOpen(repickArea);
                 workCode(repickArea);
-                headColor();
             }
         })
     } 
 }
+
+
+
+
 // header color
 let headChange = false
 function headColor(){
@@ -270,14 +311,14 @@ function headColor(){
             header.style.color = '#fff'
             logo.style.color = '#fff'
             resume.style.color = '#fff'
-        },500)
+        },200)
     }else if(headChange){
         setTimeout(()=>{
             header.style.color = '#222'
             logo.style.color = '#222'
             resume.style.color = '#222'
             headChange = false
-        },500)
+        },200)
     }
 }
 //page move
@@ -298,14 +339,12 @@ function pageMoveAni(){
             },500)
         },100);
 
-    }else if(pageOpen){//오픈된 상태라면
+    }else if(pageOpen){
         setTimeout(() => {
             pageMove.style.left = '0%'
             pageMove.style.width = '135vw';
             pageMove.style.transition = '.5s ease'
             setTimeout(()=>{
-                 window.scrollTo(0, 0);
-                 horizonWrap.style.left = 0;
                 scWork.style.display = 'block';
                 workPg.style.display = 'none';
                 for(const wpw of workPgWrap){
@@ -339,7 +378,7 @@ function pgIntroOpen(intro){
         },300)
         
     },1000)
-    workPgScroll();//work page open scroll
+    workPgScroll();
 }
 //header bg scroll
 function workPgScroll(){
@@ -349,11 +388,12 @@ function workPgScroll(){
             for(let i =0; i < infoArea.length;i++){
                 let scrollNow = document.documentElement.scrollTop;
                 let winHeight = window.innerHeight;   
-                let infoAreaBt = infoArea[i].offsetTop;//요소의 bottom
-                let infoAreaTop = infoAreaBt - winHeight; //요소의 top
+                let infoAreaBt = infoArea[i].offsetTop;
+                let infoAreaTop = infoAreaBt - winHeight;
                 let bgProPer = 0;
                 bgProPer = (scrollNow - infoAreaTop) / winHeight * 10;
-                if( 20 <= bgProPer){
+                console.log(bgProPer);
+                if( 20 < bgProPer){
                     infoArea[i].classList.add('fix');
                 }else if(20 > bgProPer){
                     infoArea[i].classList.remove('fix');
@@ -365,9 +405,6 @@ function workPgScroll(){
 pageOut.addEventListener('click',()=>{
     pageMoveAni();
     pgIntroOut();
-    //header color reset
-    headChange = true;
-    headColor();
     //cursor reset
     onCursor = false;
     cursorAni();

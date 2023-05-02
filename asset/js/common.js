@@ -5,7 +5,7 @@ const resume = document.querySelector('header .resume');
 const menuLink = document.querySelectorAll('header .menu_link');
 const menuLinkSpan = document.querySelectorAll('header .menu_link span');
 let index = 'index.html';
-let work= 'work.html';
+// let work= 'work.html';
 let about = 'about.html';
 let contact = 'contact.html';
 logo.addEventListener('click',(e)=>{
@@ -18,7 +18,7 @@ for(let i = 0; i < menuLink.length; i++){
         e.preventDefault();
         if(menuLink[i].classList.contains('workLink')){
             console.log('작업 페이지 이동')
-            window.location.href = work;
+            window.location.href = index;
         }else if(menuLink[i].classList.contains('aboutLink')){
             console.log('소개 페이지 이동')
             window.location.href = about;
