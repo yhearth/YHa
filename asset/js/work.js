@@ -1,4 +1,3 @@
-
 const scWork = document.querySelector('.sc_work')
 const workPg = document.querySelector('.work_page');
 const workPgWrap = document.querySelectorAll('.work_page .work_wrap');
@@ -54,7 +53,7 @@ let codeIndex = 0;
 
 window.onresize = function(){
     if (window.matchMedia("(min-width: 768px)").matches){
-        location.reload()
+        // location.reload()
         // window.scrollTo(0, 0);
         // horizonWrap.style.left = 0;
     }else if(window.matchMedia("(max-width: 767px)").matches){mMvPgChk()}
@@ -75,7 +74,7 @@ function nameOver(){
     nameWrap.addEventListener('mouseover',()=>{
         onCursor = true;
         cursorAni()
-        mainWrap.classList.add('dark');
+        scWork.classList.add('dark');
         nameWrap.classList.add('dark');
         headChange = false
         headColor()
@@ -83,7 +82,7 @@ function nameOver(){
     nameWrap.addEventListener('mouseout',()=>{
         onCursor = false;
         cursorAni()
-        mainWrap.classList.remove('dark');
+        scWork.classList.remove('dark');
         nameWrap.classList.remove('dark');
         headChange = true;
         headColor()
@@ -219,43 +218,6 @@ function workMouseAni(){
         })
     }
 }
-//work mousedown
-let isMouseDown = false;
-function linkDown(){
-    for( let d = 0; d < workLink.length; d++){
-
-        const linkArr = Array.from(workLink[d].parentNode.children)
-        const linkDown = linkArr.indexOf(workLink[d])
-        const prevItem = linkArr.slice(0,linkDown);
-        const nextItem = linkArr.slice(linkDown + 1);
-        var mouseDownTime ;
-        workLink[d].addEventListener('mousedown',(e)=>{
-            e.stopPropagation();
-            if(!isMouseDown){
-                prevItem.forEach(siblingItem => {
-                    siblingItem.classList.add('mouseDown')
-                });
-                nextItem.forEach(siblingItem => {
-                    siblingItem.classList.add('mouseDown')
-                }); 
-                isMouseDown = true;
-            } 
-        })
-        workLink[d].addEventListener('mouseup',(e)=>{
-            if(isMouseDown){
-                prevItem.forEach(siblingItem => {
-                    siblingItem.classList.remove('mouseDown')
-                });
-                nextItem.forEach(siblingItem => {
-                    siblingItem.classList.remove('mouseDown')
-                }); 
-                isMouseDown = false;
-            }
-            pageMoveAni();
-        })
-        
-    }
-}
 //work click
 workClickAni();
 function workClickAni(){  
@@ -277,23 +239,22 @@ function workClickAni(){
 
             if(workLink[c].classList.contains('fritz')){
                 fritzArea.style.display = 'block'
-                pgIntroOpen(fritzArea);
                 workCode(fritzArea);  
             }else if(workLink[c].classList.contains('tamburins')){
                 tanburinsArea.style.display = 'block'
-                pgIntroOpen(tanburinsArea);
                 workCode(tanburinsArea);
             }else if(workLink[c].classList.contains('spotfy')){
                 spotfyArea.style.display = 'block'
-                pgIntroOpen(spotfyArea);
                 workCode(spotfyArea);
+                headChange = false
+                headColor()
             }else if(workLink[c].classList.contains('hmg')){
                 hmgArea.style.display = 'block'
-                pgIntroOpen(hmgArea);
                 workCode(hmgArea);
+                headChange = false
+                headColor()
             }else if(workLink[c].classList.contains('repick')){
                 repickArea.style.display = 'block'
-                pgIntroOpen(repickArea);
                 workCode(repickArea);
             }
         })
@@ -345,6 +306,7 @@ function pageMoveAni(){
             pageMove.style.width = '135vw';
             pageMove.style.transition = '.5s ease'
             setTimeout(()=>{
+                window.scrollTo(0, 0);
                 scWork.style.display = 'block';
                 workPg.style.display = 'none';
                 for(const wpw of workPgWrap){
@@ -359,27 +321,7 @@ function pageMoveAni(){
 
     }
 }
-//work page intro ani
-function pgIntroOpen(intro){
-    let introTxt = intro.querySelector('.work_intro .txt_wrap')
-    let introTit = intro.querySelector('.work_intro .tit')
-    let introSub = intro.querySelector('.work_intro .sub')
-    let introLI = intro.querySelectorAll('.work_intro li')
-    setTimeout(()=>{
-        introTxt.classList.add('on');
-        setTimeout(()=>{
-            introTit.classList.add('on');
-            introSub.classList.add('on');
-            for(let i = 0; i < introLI.length; i++){
-                setTimeout(()=>{
-                    introLI[i].classList.add('on')
-                },i*50)
-            }
-        },300)
-        
-    },1000)
-    workPgScroll();
-}
+
 //header bg scroll
 function workPgScroll(){
     window.addEventListener('scroll',(e)=>{
@@ -404,27 +346,15 @@ function workPgScroll(){
 //page out
 pageOut.addEventListener('click',()=>{
     pageMoveAni();
-    pgIntroOut();
+
     //cursor reset
     onCursor = false;
     cursorAni();
+    //header color reset
+    headChange = true;
+    headColor()
 })
-//page out - workpg intro reset
-function pgIntroOut(){
 
-    for(const txtWrap of introTxtArea){
-        txtWrap.classList.remove('on');
-    }
-    for(const tit of introTit){
-        tit.classList.remove('on');
-    }
-    for(const sub of introSub){
-        sub.classList.remove('on');
-    }
-    for(const li of introLi){
-        li.classList.remove('on');
-    }
-}
 
 //workCode click
 function workCode(thisPg){
@@ -460,26 +390,10 @@ codeXBtn.addEventListener('click',()=>{
 })
 
 
-///moblie ++ click 
-const mInfoUl = document.querySelectorAll('.work_page .work_wrap .info_group .desc');
-const mInfoPlus = document.querySelectorAll('.work_page .work_wrap .info_group .block');
-let ulOpen = false;
-for(let b = 0; b < mInfoPlus.length; b++){
-    mInfoPlus[b].addEventListener('click',()=>{
-        for(let u = 0; u < mInfoUl.length; u++){
-            if(!ulOpen){
-                mInfoUl[u].classList.add('on')
-                ulOpen = true;
-            }else if(ulOpen){
-                mInfoUl[u].classList.remove('on')
-                ulOpen = false;
-            }
-        }
-    })
-}
+
+
+
 //모바일 비디오 변경
-
-
 let mWorkIndex;
 if(window.matchMedia("(max-width: 767px)").matches){mMvPgChk()}
 
@@ -508,11 +422,5 @@ function mMvChange(mAllImgBox){
         mGallImgBox[m].innerHTML = ` <img src="${mImgSrc[mWorkIndex][m]}" alt="" width="100%">`
     }
 }
-
-
-
-
-
-
 
 

@@ -129,29 +129,31 @@ const fritzCodeSrc = [
     }
     `,
     `
+    //필터 기능
      for(let c = 0; c &lt; pdCheckLi.length; c++){
-
-        pdFillIdx.innerText = pdItemIdx;//상품 갯수 초기화
-    
-        pdCheckLi[c].addEventListener('click',function(){//체크박스 클릭할때
+        pdFillIdx.innerText = pdItemIdx;
+        pdCheckLi[c].addEventListener('click',function(){
       
             if(!pdCheckLi[c].classList.contains('checked')){
                 pdCheckLi[c].classList.add('checked');
-    
+
+                //1. 선택된 제품의 getAttribute('for')값을 변수로 배열화 시킨다 
+
                 let chxLabel = pdCheckLi[c].nextElementSibling;
-                let chxName =  chxLabel.getAttribute('for');//for 값
-                //체크박스
-                checkArr.push(chxName);//선택된 라벨 배열
-                //리스트
+                let chxName =  chxLabel.getAttribute('for');
+                checkArr.push(chxName);
+
                 for(let i = 0; i &lt; pdItemFig.length; i++){
                     let itemLi = pdItemFig[i].parentElement.parentElement;
                     let itemSpan = pdItemFig[i].children; 
                     let itemTit = itemSpan[0].className;
                     let itemSub = itemSpan[1].textContent;
     
-                    itemLi.classList.add(dNone);//클릭시 모든 아이템 숨기기
+                    itemLi.classList.add(dNone);
                     itemLi.classList.remove('active');
-    
+
+                //2.filter() 함수로 선택된 제품와 같은 이름이 있을경우 보이도록 필터링 시켜준다
+
                     checkArr.filter(function(n){
                         if(n === itemTit){
                             itemLi.classList.remove(dNone);
@@ -159,34 +161,27 @@ const fritzCodeSrc = [
                             return n == itemTit; 
                         }
                     }); 
-    
                 }
-                
-                //상품 갯수 
                 let viewitemIdx = document.querySelectorAll('.pd_list .active')
                 pdItemIdx = viewitemIdx.length
                 pdFillIdx.innerText = pdItemIdx
-    
-                console.log(checkArr);
                 
+                //3. 필터링된 제품들의 갯수를 보이도록 해준다
     
             }else if(pdCheckLi[c].classList.contains('checked')){
-                pdCheckLi[c].classList.remove('checked');//체크 된 상태면 클래스 삭제
+                pdCheckLi[c].classList.remove('checked');
     
                 let chxLabel = pdCheckLi[c].nextElementSibling;
                 let chxName =  chxLabel.getAttribute('for');/
     
-                
-                //체크박스 
+                //4.splice() 메서드를 사용해 체크가 안된 제품을 빼준다
+
                 for(let x = 0; x &lt; checkArr.length; x++){
                     if(checkArr[x] == chxName ){
                         checkArr.splice(x,1);
                         x--;   
                     } 
                 }
-                console.log(checkArr);
-    
-                //리스트
                 for(let i = 0; i &lt; pdItemFig.length; i++){
                     let itemLi = pdItemFig[i].parentElement.parentElement;
                     let itemSpan = pdItemFig[i].children; 
@@ -203,99 +198,129 @@ const fritzCodeSrc = [
                             itemLi.classList.add('active');
                             return n == itemTit ;
                         }
-    
                     }); 
-    
                     if(checkArr.length == 0){
-                        console.log('빵');
                         itemLi.classList.remove(dNone);
                         itemLi.classList.add('active');
-                        // pdFillIdx.innerText = '15';
                     }
-    
                 }
-    
-                //상품 갯수 
                 let viewitemIdx = document.querySelectorAll('.pd_list .active')
                 pdItemIdx = viewitemIdx.length
                 pdFillIdx.innerText = pdItemIdx
-    
-    
             }
-    
         })
-    
     }
+    //반응형 갤러리 리스트 
+    pdRangeInput.addEventListener('change',function(){
+        document.documentElement.style.setProperty('--minRangeValue',{this.value}vw)
+    })
+
     `,
     `
     function shellOptionClick(){
 
         for(let s = 0; s &lt; shellBox.length; s++){
             shellBox[s].addEventListener('click',()=>{
+                //1.선택된 커스텀 정보를 변수로 넣어준다
                 shellIdx = s;
                 let shellCus = shellBox[s].querySelector('span');
-                shellName = shellCus.textContent;//커스텀 이름 변수
+                shellName = shellCus.textContent;
     
                 for(let x = 0; x &lt; shellBox.length; x++){
                     let shellImg = shellBox[x].querySelector('img');
                     shellImg.style.border=0;
                     shellImg.style.boxShadow = '#000 0px 0px 0px ';
                     shellImg.style.padding=0;
-                }//초기화
+                }
                 let shellImg = shellBox[s].querySelector('img');
                 shellImg.style.border='1px solid #ccc';
                 shellImg.style.boxShadow = '#00000070 1px 6px 10px';
                 shellImg.style.padding='2px';
                 shellImg.style.transition = '.5s ease';
                 
-                shellImgBox.setAttribute('src',shellImgSrc[s]);//정면 이미지 바꾸기
-                shellSideImg.setAttribute('src',shellSideSrc[s]);//side 이미지 바꾸기
-                shellLeftImg.setAttribute('src',shellLeftSrc[s]);//left 이미지 바꾸기
-                shellRightImg.setAttribute('src',shellRightSrc[s]);//right 이미지 바꾸기
+                //1.선택되 변수값을 배열에 넣어줘서 변경시켜준다
+
+                shellImgBox.setAttribute('src',shellImgSrc[s]);
+                shellSideImg.setAttribute('src',shellSideSrc[s]);
+                shellLeftImg.setAttribute('src',shellLeftSrc[s]);기
+                shellRightImg.setAttribute('src',shellRightSrc[s]);
                 
             })
         }
-        console.log('shell : '+ shellIdx);
-    
     }
     `,
     `
-    //save btn click
-        saveBtn.addEventListener('click',()=>{ 
-            console.log('세이브 버튼 누름');
-            wishIdx++;
-            wishIdxSpan.style.display = 'block'
-            wishIdxSpan.innerText = wishIdx;
-            if( saveName.value === ''){
-                saveNameNot() //이름 없을때
+    // wish item add
+        function wishListAdd (){
+            wishPgtxt.style.display = 'none'
+            let customName = saveName.value;
+            let target;
+
+            //1.위시리스트에 추가된 이름을 변수로 만든다
+            if(shellName == undefined){
+            let shellCus = shellBox[7].querySelector('span');
+            shellName = shellCus.textContent;
             }
-        savePopNone();//세이브 팝업 없애기
-        wishListAdd();//위시리스트 아이템 추가
-        })
-    //wish item remove
-        function  listDelate(){
-            delateBtn = document.querySelectorAll('.delate_box');
-        
-            for(let d = 0; d &lt; delateBtn.length; d++){
-                delateBtn[d].addEventListener('click',(e)=>{
-        
-                    let removeItem = e.target.parentElement;
-                    removeItem.remove();
-        
-                    wishIdx--;
-                    wishIdxSpan.innerText = wishIdx;
-        
-                    if(wishIdx == 0){
-                        wishPgtxt.style.display = 'block'/
-                        wishIdxSpan.style.display = 'none'
-                    }
-                })
+            if(baseName == undefined){
+                let baseCus = baseBox[0].querySelector('span');
+                baseName = baseCus.textContent;
             }
-        }
+            //2.커스텀 이름 , 정보를 innerHTML 이용해 넣어준다
+                wishPgGp.innerHTML += 
+                    &lt;div class="wish_wrap"> 
+                    &lt;div class="wish_box">
+                    &lt;div class="pd_box">
+                            &lt;div class="custom_box shell">&lt;img src="{shellImgSrc[shellIdx]}" alt="" >&lt;/div>
+                            &lt;div class="custom_box base">&lt;img src="{baseImgSrc[baseIdx]}" alt="">&lt;/div>
+                        &lt;/div>
+                        &lt;div class="edit_box">
+                            &lt;div class="name">{customName}&lt;/div>
+                            &lt;div class="custom">
+                            &lt;div class="shell">
+                                    &lt;span>Shell&lt;/span>
+                                    &lt;strong>{shellName}&lt;/strong>
+                                &lt;/div>
+                                &lt;div class="base">
+                                    &lt;span>Base&lt;/span>
+                                    &lt;strong>{baseName}&lt;/strong>
+                                    &lt;/div>
+                                    &lt;/div>
+                        &lt;/div>
+                        &lt;div class="buy">BUY&lt;/div>
+                    &lt;/div>
+                    &lt;div class="delate_box">&lt;/div>
+                    &lt;/div>
+                listDelate(); 
+}
+           //3.위시리스트를 삭제할경우 remove()을 이용해 없애준다
+            function  listDelate(){
+                delateBtn = document.querySelectorAll('.delate_box');
+
+                for(let d = 0; d &lt; delateBtn.length; d++){
+                    delateBtn[d].addEventListener('click',(e)=>{
+
+                        let removeItem = e.target.parentElement;
+                        removeItem.remove();
+
+                        wishIdx--;
+                        wishIdxSpan.innerText = wishIdx;
+
+                        if(wishIdx == 0){
+                            wishPgtxt.style.display = 'block'
+                            wishIdxSpan.style.display = 'none'
+                        }
+                
+                    })
+
+                
+                }
+
+            }
     `,
 ]
 const tamCodeSrc = [
     `
+    //이미지 지점에 왔을때 scale ,opacity 애니메이션 
         gsap.fromTo($('.img_wrap'),0.7,{
             scale:1.5,
             opacity:0
@@ -311,23 +336,23 @@ const tamCodeSrc = [
         })
     `,
     `
-    // 향수 스와이프
+       //이미지 슬라이드 구현
         swiper = new Swiper(".sc_collection .mySwiper", {
             slidesPerView: 1,
             centeredSlides: 40,
             spaceBetween: 30,
-            // grabCursor: true,
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev"
                 },
+            // breakpoints를 이용한 반응형 슬라이드
             breakpoints: {
                 767: {slidesPerView: 2,},
                 1024: {slidesPerView: 3,},
                 1440: { slidesPerView: 4,},
             },
         });
-    //카테고리 슬라이드
+        // renderBullet를 이용한 슬라이드 pagination 디자인 변경
         var swiper = new Swiper(".category_area .mySwiper", {
             pagination: {
             el: ".swiper-pagination",
@@ -339,6 +364,65 @@ const tamCodeSrc = [
             },
         });
     `,
+    `
+    //swiper를 이용한 슬라이드 
+        swiper = new Swiper(".sc_collection .mySwiper", {
+            slidesPerView: 1,
+            centeredSlides: 40,
+            spaceBetween: 30,
+            // grabCursor: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+                },
+            //반응형 슬라이드 
+            breakpoints: {
+                767: {  slidesPerView: 2,},
+                1024: { slidesPerView: 3,},
+                1440: {  slidesPerView: 4,},
+                },
+        });
+
+        //슬라이드 mouseover ,mouseout 이벤트 할시 인터렉션 구현
+        $perfumeSlid.mouseover(function(e){
+            $(this).addClass('on');
+            $(this).find('img.v2_img').stop().animate({opacity : '1'},500);
+        })
+        $perfumeSlid.mouseout(function(e){
+            $(this).removeClass('on')
+            $(this).find('img.v2_img').stop().animate({opacity : '0'},500);
+            
+        })
+    `,
+    `
+    //마우스를 따라다니도록 e.clientX,e.clientY로 위치값 넣어주기
+    $('body').mousemove(function(e){
+        xVal = e.clientX - 25;
+        yVal = e.clientY - 25;
+        console.log()
+        gsap.to('.cursor',{
+            x:xVal,y:yVal
+        })
+    })
+    //mouseover ,mouseout를 이용해 마우스 애니메이션 구현
+    $keyword.mouseover(function(){
+        $('.cursor div').text('');
+        gsap.to(".cursor",{
+           border :"1px solid rgb(190, 219, 170)",
+           scale:2,
+        })
+    })
+    $keyword.mouseout(function(){
+        gsap.to(".cursor",{
+           scale:0,
+        })
+    })
+     $keywordGp.mouseover(function(e){
+        $(this).addClass('on').siblings().removeClass('on');
+
+     })
+
+    `
 ]
 const spotiCodeSrc = [
     `
@@ -367,20 +451,53 @@ const spotiCodeSrc = [
 ]
 const hmgCodeSrc = [
     `
-        //slide animation
-        var visualSlide = new Swiper(".visual-area",{
-            navigation:{
-                prevEl:".visual-area .btn.prev",
-                nextEl:".visual-area .btn.next",
+    //slide animation
+    var visualSlide = new Swiper(".visual-area",{
+        navigation:{
+            prevEl:".visual-area .btn.prev",
+            nextEl:".visual-area .btn.next",
+        },
+        pagination:{
+            el:".swiper-pagination",
+        },
+        autoplay:{
+            delay:3000,
+            disableOnInteraction : false,
+        },
+    });
+    //이미지 슬라이드 숫자 변경
+        var slideCnt = $('.visual-area .swiper-slide').lenght;
+        $('.state-bar .num').text(1);
+        $('.state-bar .all-num').text(slideCnt);
+        visualSlide.on('slideChange',function(){
+            curr = visualSlide.realIndex + 1 ;
+            $('.state-bar .num').text(curr);
+        })
+    //이미지 슬라이드 버튼 조작
+    $('.visual-area .btns').click(function(e){
+        e.preventDefault();
+        if($(this).find('.stop').hasClass('on')){
+            $(this).find('.play').addClass('on').siblings().removeClass('on')
+            visualSlide.autoplay.stop();
+        }else{
+            $(this).find('.stop').addClass('on').siblings().removeClass('on')
+            visualSlide.autoplay.start();
+        }
+    })
+    //about gsap 애니메이션
+    gsap.utils.toArray('.title-box').forEach(el => {
+        target = $(el).find('*');
+        gsap.from(target,0.7,{
+            scrollTrigger:{
+                trigger:el,
+                start:"top 80%",
             },
-            pagination:{
-                el:".swiper-pagination",
-            },
-            autoplay:{
-                delay:3000,
-                disableOnInteraction : false,
-            },
-        });
+            opacity:0,
+            y:100,
+            stagger:0.05,
+        })
+
+    });
     `,
 ]
 const repickCodeSrc = [
