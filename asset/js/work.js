@@ -307,6 +307,7 @@ function pageMoveAni(){
             pageMove.style.transition = '.5s ease'
             setTimeout(()=>{
                 window.scrollTo(0, 0);
+                horizonWrap.style.left = 0;
                 scWork.style.display = 'block';
                 workPg.style.display = 'none';
                 for(const wpw of workPgWrap){

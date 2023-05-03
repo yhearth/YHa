@@ -369,7 +369,7 @@ main{
             background: url(../img/Fritze-intro.webp)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/Fritze-intro.webp)no-repeat center center / cover;}
+            @include mobile{background: url(../img/mobile/Fritze-intro_m.webp)no-repeat center center / cover;}
         }
      }
      .tamburins_area{
@@ -377,7 +377,7 @@ main{
             background: url(../img/tamburins_intro.webp)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/tamburins_intro.webp)no-repeat center center / cover;}
+            @include mobile{background: url(../img/mobile/tamburins_intro_m.webp)no-repeat center center / cover;}
         }
     }
     .spotfy_area{
@@ -385,7 +385,7 @@ main{
             background: url(../img/spotfy_intro.webp)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/spotfy_intro.webp)no-repeat center center / cover;}
+            @include mobile{background: url(../img/mobile/spotfy_intro_m.webp)no-repeat center center / cover;}
         }
         .work_content{
             .gallery_group{
@@ -403,7 +403,7 @@ main{
             background: url(../img/hmg_intro.webp)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/hmg_intro.webp)no-repeat center center / cover;}
+            @include mobile{background: url(../img/mobile/hmg_intro_m.webp)no-repeat center center / cover;}
         }
         .work_content{
             .gallery_group{
@@ -419,7 +419,7 @@ main{
             background: url(../img/repick_intro.webp)no-repeat center center / cover;
             background-attachment: fixed;
             background-position: center;
-            @include mobile{background: url(../img/repick_intro.webp)no-repeat center center / cover;}
+            @include mobile{background: url(../img/mobile/repick_intro_m.webp)no-repeat center center / cover;}
         }
     }
 

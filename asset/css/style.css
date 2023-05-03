@@ -1147,7 +1147,7 @@ main {
 }
 @media (max-width: 767px) {
   .work_page .fritz_area .work_intro {
-    background: url(../img/Fritze-intro.webp) no-repeat center center/cover;
+    background: url(../img/mobile/Fritze-intro_m.webp) no-repeat center center/cover;
   }
 }
 .work_page .tamburins_area .work_intro {
@@ -1157,7 +1157,7 @@ main {
 }
 @media (max-width: 767px) {
   .work_page .tamburins_area .work_intro {
-    background: url(../img/tamburins_intro.webp) no-repeat center center/cover;
+    background: url(../img/mobile/tamburins_intro_m.webp) no-repeat center center/cover;
   }
 }
 .work_page .spotfy_area .work_intro {
@@ -1167,7 +1167,7 @@ main {
 }
 @media (max-width: 767px) {
   .work_page .spotfy_area .work_intro {
-    background: url(../img/spotfy_intro.webp) no-repeat center center/cover;
+    background: url(../img/mobile/spotfy_intro_m.webp) no-repeat center center/cover;
   }
 }
 .work_page .spotfy_area .work_content .gallery_group .content_row {
@@ -1187,7 +1187,7 @@ main {
 }
 @media (max-width: 767px) {
   .work_page .hmg_area .work_intro {
-    background: url(../img/hmg_intro.webp) no-repeat center center/cover;
+    background: url(../img/mobile/hmg_intro_m.webp) no-repeat center center/cover;
   }
 }
 .work_page .hmg_area .work_content .gallery_group li:nth-child(2) {
@@ -1205,7 +1205,7 @@ main {
 }
 @media (max-width: 767px) {
   .work_page .repick_area .work_intro {
-    background: url(../img/repick_intro.webp) no-repeat center center/cover;
+    background: url(../img/mobile/repick_intro_m.webp) no-repeat center center/cover;
   }
 }
 .work_page .page_out {
