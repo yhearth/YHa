@@ -1043,8 +1043,8 @@ main {
 }
 .work_page .work_wrap .work_content .gallery_group .img_wrap img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   overflow: hidden;
 }
 .work_page .work_wrap .work_content .gallery_group .img_wrap .tag {
@@ -1188,14 +1188,6 @@ main {
 @media (max-width: 767px) {
   .work_page .hmg_area .work_intro {
     background: url(../img/mobile/hmg_intro_m.webp) no-repeat center center/cover;
-  }
-}
-.work_page .hmg_area .work_content .gallery_group li:nth-child(2) {
-  width: 32%;
-}
-@media (max-width: 767px) {
-  .work_page .hmg_area .work_content .gallery_group li:nth-child(2) {
-    width: 100%;
   }
 }
 .work_page .repick_area .work_intro {

@@ -484,6 +484,8 @@ const hmgCodeSrc = [
             visualSlide.autoplay.start();
         }
     })
+    `,
+    `
     //about gsap 애니메이션
     gsap.utils.toArray('.title-box').forEach(el => {
         target = $(el).find('*');
@@ -496,9 +498,30 @@ const hmgCodeSrc = [
             y:100,
             stagger:0.05,
         })
-
     });
-    `,
+    //
+    //반응형에 따른 gsap 조작
+    ScrollTrigger.matchMedia({
+        "(max-width : 1024px)": function(){
+            gsap.set($('.pls-item'),{
+                y:0
+            });
+        },
+        "(min-width : 1024px)": function(){
+            gsap.fromTo(plsItemTarget,0.4,{
+                y:800,
+            },{
+                scrollTrigger:{
+                    trigger:'.pleasure-area ul',
+                    start:'top center',
+                },
+                y:0,
+                stagger:0.2,
+                delay:0.3,
+            });
+        }
+    })
+    `
 ]
 const repickCodeSrc = [
     `
@@ -542,6 +565,7 @@ const mspotiSrc = [
 ]
 const mhmgSrc = [
     './asset/img/mobile/hmg_swiper.gif',
+    './asset/img/mobile/hmg_gsap.gif',
 ]
 const mrepickSrc = [
     './asset/img/mobile/repick_slide.gif'

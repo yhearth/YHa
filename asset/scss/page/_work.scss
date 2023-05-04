@@ -299,7 +299,7 @@ main{
                         display: block;width:100%;object-fit: contain;transform: scale(1.02);
                         overflow: hidden;
                     }
-                    img{width: 100%;object-fit: cover;overflow: hidden;}
+                    img{width: 100%;object-fit: contain;overflow: hidden;}
                     .tag{
                         position: absolute;
                         bottom: 1rem;left: 1rem;
@@ -404,14 +404,6 @@ main{
             background-attachment: fixed;
             background-position: center;
             @include mobile{background: url(../img/mobile/hmg_intro_m.webp)no-repeat center center / cover;}
-        }
-        .work_content{
-            .gallery_group{
-                li:nth-child(2){
-                    width:32%;
-                    @include mobile{width: 100%;}
-                }
-            }
         }
     }
     .repick_area{
