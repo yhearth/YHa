@@ -6,21 +6,17 @@ const introTit= document.querySelectorAll('.work_page .work_intro .tit');
 const introSub= document.querySelectorAll('.work_page .work_intro .sub');
 const introLi= document.querySelectorAll('.work_page .work_intro li');
 const infoArea = document.querySelectorAll('.work_wrap .work_content .info_group');
-
 const workCt = document.querySelector('.sc_work');
 const horizonWrap = document.querySelector('.horison_wrap');
 const pageMoveWrap = document.querySelector('.page_move');
-
 const cursor = document.querySelector('.wk_cursor')
 const cursorBox = document.querySelector('.wk_cursor .scroll')
 const cursorTxt = document.querySelector('.wk_cursor .scroll span')
-
 let secGet;
 let horGet;
 let v;
 let translateX;
 let scrollIng = false;
-
 // const mainWrap= document.querySelector('.sc_work .main_web')
 const mainWrap= document.querySelector('.sc_work .main_web')
 const nameWrap= mainWrap.querySelector('.sc_work .main_web .title .name')
@@ -59,8 +55,7 @@ window.onresize = function(){
     }else if(window.matchMedia("(max-width: 767px)").matches){mMvPgChk()}
 };
 
-//main load Ani
-mainLoad();
+
 function mainLoad(){
     for(let n = 0; n < nameLi.length; n++){
         setTimeout(()=>{
@@ -69,7 +64,6 @@ function mainLoad(){
         },n*80) 
     }
 }
-if(window.matchMedia("(min-width: 767px)").matches){nameOver()}
 function nameOver(){
     nameWrap.addEventListener('mouseover',()=>{
         onCursor = true;
@@ -423,5 +417,19 @@ function mMvChange(mAllImgBox){
         mGallImgBox[m].innerHTML = ` <img src="${mImgSrc[mWorkIndex][m]}" alt="" width="100%">`
     }
 }
+let onMoblie = false
+function handleResize() {
+    if (window.innerWidth < 768) {
+    }else if(window.innerWidth > 768){
+    }
+}
+function addEvent() {
+    window.addEventListener('resize', handleResize);
+    mainLoad();
+    if(window.matchMedia("(min-width: 767px)").matches){nameOver()}
+}
 
-
+function init() {
+    addEvent();
+}
+init();
