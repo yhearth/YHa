@@ -487,7 +487,7 @@ main{
     top: 0;left: 0;
     width:0vw;height: 100vh;
     background-color:var(--bgColorG);
-    z-index: 100;
+    z-index:101;
 
 }
 .wk_cursor{
@@ -513,3 +513,37 @@ main{
 		}
 	}
 }
+
+.upDate_wrap{
+    display: inline-block;
+    position: fixed;z-index:100;
+    top:72px;right: 6.25vw;
+
+    min-width: 320px;
+    padding:20px;box-sizing: border-box;
+    border-radius:.5rem;
+    background-color: #f2f2f2;
+
+    span{
+        font-weight: 700;font-size: 0.8rem;color:#bbb;
+        position: absolute;right: 20px;top: 18px;
+    }
+    .title{
+        font-size: 0.8rem;font-weight:700;line-height: 1.5;
+    }
+    p{
+        position: relative;display: inline-block;
+        line-height: 1.5;font-weight: 500;margin-top:.5rem;
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;left: 0;width:0%;height:1px;
+            background-color: #000;
+            transition: all .5s ease;
+        }
+        &:hover{
+            &::after{width: 100%;}
+        }
+    }
+}
+

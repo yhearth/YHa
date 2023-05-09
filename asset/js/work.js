@@ -44,16 +44,10 @@ const codeImg = document.querySelector('.work_page .code_box')
 const codeTxt = document.querySelector('.work_page .code_box code')
 const codeXBtn = document.querySelector('.work_page .x_btn')
 
+const newPopup = document.querySelector('.upDate_wrap')
+
 let workIndex = 0;
 let codeIndex = 0;
-
-window.onresize = function(){
-    if (window.matchMedia("(min-width: 768px)").matches){
-        // location.reload()
-        // window.scrollTo(0, 0);
-        // horizonWrap.style.left = 0;
-    }else if(window.matchMedia("(max-width: 767px)").matches){mMvPgChk()}
-};
 
 
 function mainLoad(){
@@ -82,7 +76,6 @@ function nameOver(){
         headColor()
     })
 }
-
 
 //cursor
 window.addEventListener('mousemove',(e)=>{
@@ -230,6 +223,11 @@ function workClickAni(){
             //header scroll 
             workPgScroll();
 
+            //popup dn
+            setTimeout(()=>{
+                newPopup.style.display='none'
+            },600)
+
 
             if(workLink[c].classList.contains('fritz')){
                 fritzArea.style.display = 'block'
@@ -348,6 +346,11 @@ pageOut.addEventListener('click',()=>{
     //header color reset
     headChange = true;
     headColor()
+
+    //popup dn
+    setTimeout(()=>{
+        newPopup.style.display='inline-block'
+    },600)
 })
 
 
@@ -390,13 +393,13 @@ codeXBtn.addEventListener('click',()=>{
 
 //모바일 비디오 변경
 let mWorkIndex;
-if(window.matchMedia("(max-width: 767px)").matches){mMvPgChk()}
-
+let onWindowSizs = false;
+//if(window.matchMedia("(max-width: 767px)").matches){mMvPgChk()}
 function mMvPgChk(){
     for( let w = 0; w < workPgWrap.length; w++){
         mWorkIndex = w;
         if(workPgWrap[w].classList.contains('fritz_area')){
-                mMvChange(fritzArea);
+            mMvChange(fritzArea);
         }else if(workPgWrap[w].classList.contains('tamburins_area')){
                 mMvChange(tanburinsArea);     
         }else if(workPgWrap[w].classList.contains('spotfy_area')){
@@ -406,7 +409,7 @@ function mMvPgChk(){
         }else if(workPgWrap[w].classList.contains('repick_area')){
                 mMvChange(repickArea);
         }
-
+       
 }
 }
 function mMvChange(mAllImgBox){
@@ -417,14 +420,20 @@ function mMvChange(mAllImgBox){
         mGallImgBox[m].innerHTML = ` <img src="${mImgSrc[mWorkIndex][m]}" alt="" width="100%">`
     }
 }
-let onMoblie = false
 function handleResize() {
+    console.log('모바일')
+   
     if (window.innerWidth < 768) {
-    }else if(window.innerWidth > 768){
+        console.log('모바일')
+        mMvPgChk()
+    }else{
     }
+   
 }
+// window.onresize = function(){ };
+
 function addEvent() {
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize',handleResize());
     mainLoad();
     if(window.matchMedia("(min-width: 767px)").matches){nameOver()}
 }

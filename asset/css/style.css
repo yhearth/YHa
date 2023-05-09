@@ -1328,7 +1328,7 @@ main {
   width: 0vw;
   height: 100vh;
   background-color: var(--bgColorG);
-  z-index: 100;
+  z-index: 101;
 }
 
 .wk_cursor {
@@ -1362,6 +1362,52 @@ main {
   font-size: 1rem;
   font-weight: bold;
   letter-spacing: 2px;
+}
+
+.upDate_wrap {
+  display: inline-block;
+  position: fixed;
+  z-index: 100;
+  top: 72px;
+  right: 6.25vw;
+  min-width: 320px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  background-color: #f2f2f2;
+}
+.upDate_wrap span {
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #bbb;
+  position: absolute;
+  right: 20px;
+  top: 18px;
+}
+.upDate_wrap .title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.upDate_wrap p {
+  position: relative;
+  display: inline-block;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+.upDate_wrap p::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #000;
+  transition: all 0.5s ease;
+}
+.upDate_wrap p:hover::after {
+  width: 100%;
 }
 
 main {
