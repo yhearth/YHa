@@ -547,7 +547,7 @@ const repickCodeSrc = [
         }
     `,
 ]
-const codeSrc = [fritzCodeSrc ,tamCodeSrc ,spotiCodeSrc,hmgCodeSrc ,repickCodeSrc]
+const codeSrc = [repickCodeSrc,hmgCodeSrc,spotiCodeSrc,tamCodeSrc,fritzCodeSrc]
 
 //mobile
 const mfritzSrc = [

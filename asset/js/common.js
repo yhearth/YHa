@@ -4,10 +4,12 @@ const logo = document.querySelector('header .logo');
 const resume = document.querySelector('header .resume');
 const menuLink = document.querySelectorAll('header .menu_link');
 const menuLinkSpan = document.querySelectorAll('header .menu_link span');
-let index = 'index.html';
-// let work= 'work.html';
-let about = 'about.html';
-let contact = 'contact.html';
+
+let index = '../index.html';
+let about = '../about.html';
+let contact = '../contact.html';
+
+
 logo.addEventListener('click',(e)=>{
     e.preventDefault();
     console.log('메인 페이지 이동');
@@ -66,21 +68,26 @@ mheadBtn.addEventListener('click',(e)=>{
 
 })
 
-//header scroll
+// scroll
 window.addEventListener('scroll',(e)=>{
     e.preventDefault();
         let scrollNow = document.documentElement.scrollTop;
         let winHeight = window.innerHeight;
         
-        //header scroll
+        //header
         let hdTriger = header.offsetTop;
         let hdTop = hdTriger - winHeight;
         let hdPer = 0;
         hdPer = (scrollNow - hdTop) / winHeight * 10;
+
         if( 10 < hdPer){
             header.classList.add('on');
         }else if(10 == hdPer){
             header.classList.remove('on');
-        }      
-})  
+        }
+
+        
+}) 
+
+
 
