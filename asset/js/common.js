@@ -5,9 +5,9 @@ const resume = document.querySelector('header .resume');
 const menuLink = document.querySelectorAll('header .menu_link');
 const menuLinkSpan = document.querySelectorAll('header .menu_link span');
 
-let index = './index.html';
-let about = './about.html';
-let contact = './contact.html';
+let index = '../index.html';
+let about = '../about.html';
+let contact = '../contact.html';
 
 
 logo.addEventListener('click',(e)=>{
