@@ -84,15 +84,15 @@ function workClickAni(){
       workLink[c].addEventListener('click',(e)=>{
           e.preventDefault();
           if(workLink[c].classList.contains('fritz')){
-              window.location.href = '../work/fritzHansen.html';
+              window.location.href = './work/fritzHansen.html';
           }else if(workLink[c].classList.contains('tamburins')){
-              window.location.href = '../work/tamburins.html';
+              window.location.href = './work/tamburins.html';
           }else if(workLink[c].classList.contains('spotify')){
-              window.location.href = '../work/spotify.html';
+              window.location.href = './work/spotify.html';
           }else if(workLink[c].classList.contains('HMG')){
-              window.location.href = '../work/hmg.html';
+              window.location.href = './work/hmg.html';
           }else if(workLink[c].classList.contains('repick')){
-              window.location.href = '../work/repick.html';
+              window.location.href = './work/repick.html';
           }
       })
   } 
