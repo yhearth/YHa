@@ -1,5 +1,5 @@
 const nameLi= document.querySelectorAll('.sc_main .txt_wrap .name span')
-
+mainLoad()
 function mainLoad(){
   for(let n = 0; n < nameLi.length; n++){
       setTimeout(()=>{
@@ -101,7 +101,6 @@ function workClickAni(){
 
 
 window.addEventListener('load',()=>{
-  mainLoad()
   xScroll()
   workClickAni();
 })
