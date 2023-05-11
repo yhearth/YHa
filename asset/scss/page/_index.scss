@@ -134,6 +134,10 @@ main{
                     overflow: hidden;
                     border-radius:1rem;
                     box-shadow: 0 0 30px #00000020;
+                    -webkit-backface-visibility: hidden;
+                    -moz-backface-visibility:hidden;
+                    -webkit-transform:translate3d(0,0,0);
+                    -moz-transform:translate3d(0,0,0);
                     @include mobile{ border-radius:.5rem;}
                     .img_box{
                         position: relative;
