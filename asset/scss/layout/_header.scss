@@ -2,10 +2,11 @@ header{
     position: relative;
     width: 100%;
     z-index: 100;
-    color:#383838;
+    color:#222;
     position: fixed;
     top: 0;left: 0;
     font-family: 'Pretendard';
+    &.white{color:#fff}
     ::before{
         content: '';
         position: fixed;
@@ -27,7 +28,7 @@ header{
         position: relative;
         width: auto;margin-right: 6.25vw;
         .logo{
-            color:#333333;font-size:1.5rem;font-weight:700;
+            font-size:1.5rem;font-weight:700;
             a{display: block;display: flex;align-items: center;}
           //  img{width:50%;object-fit: contain;padding: 0 1vw;}
         }
@@ -77,7 +78,7 @@ header{
             }
         }
         .resume{
-            position: relative;color:#777777;line-height: 1.8;
+            position: relative;color:#aaa;line-height: 1.8;
             @include mobile{
                 width: 100%;margin-top: 2rem;
                 padding: 6.25vw 20px;box-sizing: border-box;

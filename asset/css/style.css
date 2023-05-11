@@ -134,11 +134,14 @@ header {
   position: relative;
   width: 100%;
   z-index: 100;
-  color: #383838;
+  color: #222;
   position: fixed;
   top: 0;
   left: 0;
   font-family: "Pretendard";
+}
+header.white {
+  color: #fff;
 }
 header ::before {
   content: "";
@@ -171,7 +174,6 @@ header.on ::before {
   margin-right: 6.25vw;
 }
 .navigation .logo_wrap .logo {
-  color: #333333;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -258,7 +260,7 @@ header.on ::before {
 }
 .navigation .menu_group .resume {
   position: relative;
-  color: #777777;
+  color: #aaa;
   line-height: 1.8;
 }
 @media (max-width: 767px) {
@@ -486,6 +488,7 @@ main {
 }
 .sc_main .more span {
   margin-left: 30px;
+  transform: rotate(90deg);
 }
 @media (max-width: 1440px) {
   .sc_main .more {
@@ -632,6 +635,10 @@ main {
   overflow: hidden;
   border-radius: 1rem;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1254901961);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
 }
 @media (max-width: 767px) {
   .sc_horison .horison_wrap .work_list .work_link .img_wrap {
@@ -664,6 +671,11 @@ main {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
+  border-radius: 1rem;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
 }
 .sc_horison .horison_wrap .work_list .work_link .img_wrap .skill {
   position: absolute;

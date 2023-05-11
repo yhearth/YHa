@@ -59,7 +59,7 @@ main{
         bottom: 6.25vw;right: 6.25vw;
         display: flex;justify-content: end;
         font-size:3rem;font-weight: 300;
-        span{margin-left: 30px;}
+        span{margin-left: 30px;transform: rotate(90deg);}
         @include notebook{font-size:2.5rem;}
         @include tablet{font-size:1.8rem;}
     }
@@ -158,6 +158,11 @@ main{
                          video{
                             width: 100%;object-fit:cover;
                             display: block;
+                            border-radius:1rem;
+                            -webkit-backface-visibility: hidden;
+                            -moz-backface-visibility:hidden;
+                            -webkit-transform:translate3d(0,0,0);
+                            -moz-transform:translate3d(0,0,0);
                          }
                     }
                     .skill{
