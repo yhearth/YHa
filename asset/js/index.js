@@ -1,6 +1,5 @@
 const nameLi= document.querySelectorAll('.sc_main .txt_wrap .name span')
 
-mainLoad()
 function mainLoad(){
   for(let n = 0; n < nameLi.length; n++){
       setTimeout(()=>{
@@ -9,41 +8,44 @@ function mainLoad(){
       },n*50) 
   }
 }
-ScrollTrigger.matchMedia({//사이즈별로 
-  // desktop
-  "(min-width: 767px)": function() {
-    gsap.to('.horison_wrap',{
-      scrollTrigger:{
-        trigger:".sc_horison",
-        start:"top top",
-        end:"bottom top",
-        scrub :1,
-        // markers:true,
-        pin:true,//pin 모션 고정 
-        end:"+=300% ", //sc_work스크롤의 5배 - 너무 빠른 경우
-      },
-        xPercent : -400 + 100 ,//list 총 길리 계산 334 - 화면 값 transform: translateX(45%)
-      })
-    }
+function xScroll(){
+  ScrollTrigger.matchMedia({//사이즈별로 
+    // desktop
+    "(min-width: 767px)": function() {
+      gsap.to('.horison_wrap',{
+        scrollTrigger:{
+          trigger:".sc_horison",
+          start:"top top",
+          end:"bottom top",
+          scrub :1,
+          // markers:true,
+          pin:true,//pin 모션 고정 
+          end:"+=300% ", //sc_work스크롤의 5배 - 너무 빠른 경우
+        },
+          xPercent : -400 + 100 ,//list 총 길리 계산 334 - 화면 값 transform: translateX(45%)
+        })
+      }
+  
+  });
+}
 
-});
 //cursor
-window.addEventListener('mousemove',(e)=>{
-  e.preventDefault();
-  let mouseX = e.clientX - 100 + 'px';
-  let mouseY = e.clientY - 100 + 'px';
-  // cursor.style.left = mouseX;
-  // cursor.style.top = mouseY;
-})
+// window.addEventListener('mousemove',(e)=>{
+//   e.preventDefault();
+//   let mouseX = e.clientX - 100 + 'px';
+//   let mouseY = e.clientY - 100 + 'px';
+//   // cursor.style.left = mouseX;
+//   // cursor.style.top = mouseY;
+// })
 
 //scroll
-function handleScrollEvent(){
-  secGet = horisonCt.getBoundingClientRect();
-  horGet = horizonWrap.getBoundingClientRect();
-  v = window.scrollY;
-  translateX = (secGet.height - secGet.width) * ((v / (secGet.height - horGet.height)) * -1);
-  horizonWrap.style.left = `${translateX}px`;
-}
+// function handleScrollEvent(){
+//   secGet = horisonCt.getBoundingClientRect();
+//   horGet = horizonWrap.getBoundingClientRect();
+//   v = window.scrollY;
+//   translateX = (secGet.height - secGet.width) * ((v / (secGet.height - horGet.height)) * -1);
+//   horizonWrap.style.left = `${translateX}px`;
+// }
 
 const workLink = document.querySelectorAll('.sc_horison .work_link')
 //const workLink = document.querySelectorAll('.sc_horison .work_link .img_box')
@@ -78,7 +80,6 @@ function workMouseAni(){
   }
 }
 //work click
-workClickAni();
 function workClickAni(){  
   for( let c = 0; c < workLink.length; c++){
       workLink[c].addEventListener('click',(e)=>{
@@ -97,6 +98,13 @@ function workClickAni(){
       })
   } 
 }
+
+
+window.addEventListener('load',()=>{
+  mainLoad()
+  xScroll()
+  workClickAni();
+})
 
 
 
